@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .flex-container {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        width: 500px;
+        height: 500px;
+        background-color: black;
+        /* margin을 이용해서 가운데 배치 */
+        margin: 50px auto 0;
+        padding: 10px;
+      }
+      .item {
+        width: 100%;
+        height: 80px;
+        background-color: white;
+      }
+      .item-flex {
+        display: flex;
+        justify-content: space-between;
+        padding: 3px;
+      }
+      .item-flex div {
+        background-color: black;
+        width: 100px;
+        color: white;
+        font-size: 30px;
+        font-weight: 700;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="flex-container">
+        <!-- div.item * 5 -->
+        <div class="item">1</div>
+        <div class="item">2</div>
+        <div class="item item-flex">
+          <div>3-1</div>
+          <div>3-2</div>
+          <div>3-3</div>
+        </div>
+        <div class="item">4</div>
+        <div class="item">5</div>
+      </div>
+    </div>
+  </body>
+</html>

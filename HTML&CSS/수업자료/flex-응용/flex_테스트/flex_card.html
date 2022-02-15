@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .card-container {
+        display: flex;
+        width: 1000px;
+        height: 400px;
+        /* margin : 위&아래 오른쪽&왼쪽 */
+        margin: 100px auto;
+      }
+      .item {
+        /* 아이템 에다가 flex:1을 하면 아이템들이 동일한 크기를 가지게 됨 */
+        flex: 1;
+        position: relative;
+        height: 100%;
+        padding: 25px;
+        /* item 태그 하위 글자는 모두 white로 변경 됨 */
+        color: white;
+        transition: 0.6s;
+      }
+
+      .item:hover {
+        flex-grow: 2.5;
+      }
+      .item:hover .caption {
+        /* none의 반대는 block */
+        display: block;
+      }
+
+      .item:nth-child(1) {
+        background-color: #283491;
+      }
+      .item:nth-child(2) {
+        background-color: #f18684;
+      }
+      .item:nth-child(3) {
+        background-color: #6ee2f1;
+      }
+      .item h2 {
+        font-size: 24px;
+        font-weight: 700;
+        /* 글자 가운데 정렬 */
+        text-align: center;
+      }
+      .caption {
+        display: none;
+        font-size: 12px;
+        margin: 28px 0;
+        max-width: 230px;
+      }
+
+      .caption button {
+        border: 1px solid #fff;
+        border-radius: 30px;
+        background: transparent;
+        padding: 8px 18px;
+        color: #fff;
+        font-size: 14px;
+        cursor: pointer;
+        margin-top: 20px;
+      }
+
+      .item img {
+        position: absolute;
+        width: 200px;
+        right: 0;
+        bottom: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card-container">
+        <div class="item">
+          <h2>크로스 핏</h2>
+          <div class="caption">
+            <p>크로스 핏 훈련내용 작성....</p>
+            <button>예약</button>
+          </div>
+          <img src="img1.png" alt="" />
+        </div>
+        <div class="item">
+          <h2>웨이트 훈련</h2>
+          <div class="caption">
+            <p>웨이트 훈련내용 작성....</p>
+            <button>예약</button>
+          </div>
+          <img src="img2.png" alt="" />
+        </div>
+        <div class="item">
+          <h2>요가</h2>
+          <div class="caption">
+            <p>요가 훈련내용 작성....</p>
+            <button>예약</button>
+          </div>
+          <img src="img3.png" alt="" />
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
