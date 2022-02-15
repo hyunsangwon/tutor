@@ -1,0 +1,21 @@
+.static {
+  width: 200px;
+  height: 100px;
+  background-color: green;
+}
+
+.relative {
+  position: relative;
+  left: 200px;
+  width: 200px;
+  height: 100px;
+  background-color: yellow;
+}
+
+.relative02 {
+  position: relative;
+  left: 400px;
+  width: 200px;
+  height: 100px;
+  background-color: red;
+}

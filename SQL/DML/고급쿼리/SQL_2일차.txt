@@ -1,0 +1,207 @@
+**************************** 일반 쿼리 limit
+limit : 출력되는 결과 행의 수를 제한해서 출력.
+LIMIT <start>, <end>
+
+select
+    *
+from emp
+limit 0, 10
+
+**************************** 조인 종류
+
+INNER JOIN(내부 조인 혹은 조인) : 
+    두 테이블을 조인할 때, 두 테이블에 모두 지정한 데이터 조회
+OUTER JOIN(외부 조인): 
+    두 테이블을 조인할 때, 1개의 테이블에만 데이터가 있어도 조회
+SELF JOIN(자체 조인): 
+    자신이 자신과 조인, 1개의 테이블을 사용
+
+**************************** OUTER JOIN
+** OUTER JOIN 종류
+1. LEFT OUTER JOIN: 왼쪽 테이블의 모든 값이 출력되는 조인
+2. RIGHT OUTER JOIN: 오른쪽 테이블의 모든 값이 출력되는 조인
+3. FULL OUTER JOIN: 왼쪽 또는 오른쪽 테이블의 모든 값이 출력되는 조인
+
+** OUTER JOIN 문법
+SELECT <열 목록>
+FROM <첫 번째 테이블(LEFT 테이블)>
+          <LEFT | RIGHT | FULL> OUTER JOIN <두 번째 테이블(RIGHT 테이블)>
+           ON <조인될 조건>
+[WHERE 검색 조건]
+
+*** 언제 사용하는지?
+대표적인 예) 쇼핑몰 사이트에서 회원가입은 했는데 구매이력이 없는 회원 조회.
+
+문제 1) 사원테이블에서 40번 부서인 OPERATIONS팀도 조회.
+** outer는 디폴트 값
+바른 예)
+select 
+    *
+from dept as d
+left outer join emp e 
+on d.DEPTNO  = e.DEPTNO 
+
+잘못된 예)
+select 
+*
+from emp as e
+left outer join dept d 
+on d.DEPTNO  = e.DEPTNO 
+
+잘못된 예 right로 수정 혹은 테이블 위치 변경)
+select 
+*
+from emp as e
+right outer join dept d 
+on d.DEPTNO  = e.DEPTNO 
+
+문제 2 ) 부서번호가 없는 사원도 출력
+
+insert into emp(empno, ename, job, hiredate, sal, comm)
+values (8000, '손흥민', 'DEVELOPER', now(), 300, 100)
+
+select 
+    *
+from emp as e
+left outer join dept as d 
+on e.DEPTNO = d.DEPTNO 
+
+문제 3) 분서번호가 없는 사원만 출력
+
+select 
+*
+from emp as e
+left outer join dept as d 
+on e.DEPTNO = d.DEPTNO 
+where e.DEPTNO  is null
+
+*** mysql에서는 full outer join을 지원하지 않는다. (아래 참고만)
+
+SELECT column_name(s)
+FROM table1 left join table2
+ON table1.column_name = table2.column_name;
+
+union
+
+SELECT column_name(s)
+FROM table1 right join table2
+ON table1.column_name = table2.column_name; 
+
+**************************** SELF JOIN
+1개의 테이블을 조인함
+별도의 문법이 있는 것은 아니고 1개로 조인하면 자체 조인
+
+** 셀프조인 문법
+ SELECT <열 목록>
+ FROM <테이블> 별칭A
+          INNER JOIN <테이블> 별칭B
+          ON <조인될 조건>
+ [WHERE 검색 조건]
+
+문제 1 ) 사원 들의 상사 조회
+
+select 
+ e.EMPNO as "사원 번호", 
+ e.ename as "사원 이름",
+ boss.EMPNO as "상사 번호",
+ boss.ENAME as "상사 이름" 
+from emp as e
+inner join emp as boss
+on e.MGR = boss.empno
+
+문제 2) 상사들의 사원 조회
+
+select 
+ boss.EMPNO as "상사 번호", 
+ boss.ename as "상사 이름",
+ e.EMPNO as "부하 번호",
+ e.ENAME as "부하 이름" 
+from emp as boss
+inner join emp as e
+on boss.empno = e.mgr
+
+*** 다중으로 조인할때 순서가 있음
+ SELECT <열 목록>
+ FROM <테이블> 별칭A
+          INNER|RIGHT|LEFT JOIN <테이블> 별칭B
+          ON <조인될 조건>
+          INNER|RIGHT|LEFT JOIN <테이블> 별칭C
+          ON <조인될 조건>
+ [WHERE 검색 조건]
+
+**************************** Subquery
+서브쿼리란 하나의 쿼리 문장 내에 포함된 또 하나의 쿼리 문장. (select, from, where절에 사용)
+* 반드시 ()로 묶는다
+* 서브쿼리가 먼저*** 실행된 후, 외부쿼리와 비교/연산됨
+* 서브쿼리가 가능한 곳
+    - SELECT
+    - FROM
+    - WHERE
+    - HAVING
+    - ORDER BY
+    - INSERT values
+    - UPDATE set
+
+*** select 절에 오는 서브쿼리 (스칼라 서브쿼리)
+select 
+ (select count(*) from emp ) as "사원 수",
+ (select sum(sal) from emp ) as "총 급여",
+ avg(sal) as "평균 급여"
+from emp
+
+*** where 절에 오는 서브쿼리 (중첩 서브쿼리)
+1) 회사에서 가장 급여를 많이 받는 사람을 추출
+select 
+	ename, 
+	sal 
+from emp
+where 
+	sal = (select max(sal) from emp);
+
+2) --문제 회사의 10번 부서 사람들 중에서 회사의 평균급여보다 많이 받는 사람을 추출
+select 
+	deptno, 
+	ename,
+	sal
+from emp
+where deptno = 10
+  and 
+  	sal > (select avg(sal) from emp);
+
+3) --문제 사원번호가 7876인 사원과 job이 같은 사람을 모두 조회
+select 
+	*
+from emp 
+where job = (select 
+	job
+from emp 
+where empno = 7876)
+
+*** update 절에 오는 서브쿼리 
+1) UPDATE 절에 오는 서브쿼리 (참고 만)
+UPDATE emp 
+    SET job = (select job from emp where empno = 7844) 
+WHERE empno = 8000
+
+표준SQL상 구문은 이상이 없는데, 에러가 발생한다.
+이는 MySQL의 특징으로 데이터를 추가나 갱신할 경우 
+동일한 테이블로 서브쿼리를 사용할 수 없도록 되어 있기 때문.(Oracle은 동작)
+
+*** from 절에 오는 서브쿼리 (인라인 뷰) 
+* 필터링 작업할때 사용
+1) 직업별 카운트 후 가장 많은 직업 수를 찾아낼 때
+select 
+	max(emp.cnt),
+    min(emp.cnt)
+from
+(select 
+	job,
+	count(job) as cnt
+from emp
+group by job) as emp
+
+ **************************** SQL 마치며
+ 백엔드 시간에 이어서..!
+ 1. 다중행 서브쿼리(알아두기만), from 서브쿼리 보충 설명
+ 2. 모델링 (테이블 설계 및 DDL)
+ 3. delete (+ on delete cascade)

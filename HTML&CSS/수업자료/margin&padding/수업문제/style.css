@@ -1,0 +1,47 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)),
+    url(pexels-photo-9049082.jpeg);
+  background-position: center;
+  background-size: cover;
+}
+.book-form {
+  width: 400px;
+  height: auto;
+  border: 3px solid #5a5c69;
+  margin: 10% auto 0;
+  padding: 5px 20px 20px;
+}
+.book-form label {
+  display: inline-block;
+  margin-bottom: 5px;
+  font-size: 18px;
+  color: #fff;
+}
+.book-form input {
+  margin-bottom: 10px;
+  padding: 12px;
+  width: 100%;
+  height: auto;
+}
+.book-form .true {
+  cursor: pointer;
+  border-radius: 10px;
+  border-color: #4e73df;
+  background-color: #4e73df;
+  color: white;
+  font-size: 20px;
+}
+.book-form .false {
+  cursor: pointer;
+  border-radius: 10px;
+  border-color: #e74a3b;
+  background-color: #e74a3b;
+  color: white;
+  font-size: 20px;
+}

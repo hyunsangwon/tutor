@@ -1,0 +1,47 @@
+*** 문제 ) 공유폴더 -> SQL문제_제풀 -> 홍길동_쿼리.txt (192.168.0.32)
+
+-- 직업이 manager 사람들의 급여 평균을 조회하시오.
+	select 
+		avg(sal)
+	from emp 
+	where job = 'manager'
+
+-- 입사날짜가 1987-06-28 이상인 사람들의 수와 급여 평균을
+ 	조회하시오.
+	select 
+		count(*),
+		avg(sal)
+	from emp 
+	where hiredate >= '1987-06-28'
+
+-- 직업이 CLERK인 사원 중 최소급여를 받고있는 
+	사원의 이름과 입사날짜를 조회하시오.
+	select 
+	*
+	from emp 
+	where job = 'CLERK'
+	group by job
+	having sal = min(sal)
+
+	or (서브쿼리로도 가능하겠군요~)
+	
+	select 
+		*
+	from emp 
+	where sal = (select min(sal) from emp where job = 'CLERK' )
+
+
+** 보너스 문제 )
+-- COMM이 NULL이 아니고, 직업이 SALESMAN 그리고 입사날짜가 1981-02-22
+ 이후에 들어온 사원의 COMM 총합을 조회하시오.
+
+*** 응용 문제)
+1) 부서별 직책별 최대급여와 인원수, 최소급여를 추출
+단, 10번 부서제외하고, 
+인원수는 3명 이하인 것으로 인원수가 적은 순서대로 추출
+
+2.부서별로 급여합계
+ 단, 10, 30번 부서와 급여합계가 5000이상인 부서만 추출
+
+3. 직책별로 급여합계와 평균급여를 추출
+단, MANAGER는 제외하고 평균SAL가 1000이상인 것만 추출

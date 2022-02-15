@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="html 수업자료" />
+    <meta name="keywords" content="html,css,coding" />
+    <meta name="author" content="brian" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    - video
+    <h3>input 태그를 배워봐요~ :)</h3>
+    <a href="https://www.naver.com/">네이버 이동</a>
+    <a href="https://github.com/hyunsangwon">깃허브 이동</a>
+    <!-- 
+        input 요소 (자주사용하는 것만) : 요소는 중복 사용 불가능
+        1. text
+        2. password
+        3. number
+        4. checkbox  
+        5. file
+        6. date, (month, week, time)
+        7. button
+     -->
+    <!--
+        input 속성 (자주사용하는 것만) : 속성은 중복 사용 가능
+        id : 태그에 고유 아이디를 부여 (이룸 중복 불가능)
+        name : 태그에 별칭을 줌 (이름 중복 가능)
+        value : 입력필드에 대한 초기값을 지정
+        readonly : 읽기전용, 입력 불가능
+        placeholder : 입력필드에 대한 초기값을 지정하지만 투명 글자
+        disabled : 사용 불가능, 서버에 전송 안함
+        size : 문자 크기 지정 (input 입력 길이가 줄어듬)
+        maxlength : 허용 문자
+        min="1" max="5" : type number일 때 
+        multiple : type file일 때 
+     -->
+    <input type="text" placeholder="아이디를 입력하세요" />
+    <input type="password" placeholder="비밀번호를 입력하세요" maxlength="3" />
+    <input type="number" />
+    <input type="checkbox" id="apple" checked />
+    <!-- input id랑 for랑 같게 -->
+    <label for="apple">Apple</label>
+    <input type="file" multiple />
+    <input type="date" />
+    <input type="month" />
+    <input type="week" />
+    <input type="time" />
+    <input type="button" value="click" />
+    <button>click</button>
+
+    <select name="pets" id="pet-select">
+      <option value="">--Please choose an option--</option>
+      <option value="dog">Dog</option>
+      <option value="cat" selected>Cat</option>
+      <option value="hamster">Hamster</option>
+      <option value="parrot">Parrot</option>
+      <option value="spider">Spider</option>
+      <option value="goldfish">Goldfish</option>
+    </select>
+  </body>
+</html>

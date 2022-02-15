@@ -1,0 +1,130 @@
+**************************** 다중행 함수
+-- sum, avg, count, max, min
+-- group by 컬럼명
+
+**************************** 문법 정리
+select 
+ <컬럼 이름>
+from <테이블 이름>
+where <조건 식>
+group by <컬럼 이름>
+having <sum, avg, min, max>
+order by <정렬할 컬럼> desc | asc
+
+**************************** SQL 실행 순서
+1. from (항상 처음) 
+2. where
+3. group by
+4. having
+5. select 
+6. order by (항상 마지막)
+****************************
+
+**************************** 연산자 
+WHERE 절에 옴
+관계 연산자 : !=, =, >, < , >=, =< 
+논리 연산자 : and , or 
+문자 연산자 : like 
+
+**************************** 응용 문제 풀이
+1) 
+부서별 직책별 최대급여와 인원수, 
+최소급여를 추출
+단, 10번 부서제외하고, 
+인원수는 3명 이하인 것으로 
+인원수가 적은 순서대로 추출
+
+-- 1. 부서별 직책별 (~별 아하! 그룹핑!)
+-- 2. 최대급여와 인원수,최소급여를 조회(select)
+-- 3. 10번 부서제외 (where)
+-- 4. 인원 수는 3명 이하 (having!)
+-- 5. 인원 수가 적은 순서 (정렬!)
+
+select
+	deptno,
+	job,
+	max(sal),
+	count(*),
+	min(sal)
+from emp
+where deptno != 10
+group by deptno, job
+having count(*) <= 3
+order by 4
+
+2) 
+-- 1. 부서별 (그룹핑!)
+-- 2. 급여 합계(sum) 조회
+-- 3. 10, 30 부서여야 함. 
+-- 4. 급여 합계(sum)가 5000이상인 부서(having!)
+
+select 
+	DEPTNO,
+	sum(sal)
+from emp 
+where 
+	deptno = 10
+	or
+	deptno = 30
+group by deptno
+having sum(sal) >= 5000;
+
+-- 1) 직책별 (그룹핑!)
+-- 2) 급여 합계(sum), 평균(avg) 급여 조회
+-- 3) job이 MANAGER는 제외
+-- 4) 평균(avg)SAL가 1000*이상 (having)
+
+select 
+	sum(sal),
+	avg(sal)
+from emp 
+where job != 'MANAGER'
+group by job
+having avg(sal) >= 1000
+
+**************************** 응용 문제 풀이
+
+**************************** IFNULL
+IFNULL : 데이터가 NULL인 행에 임의 데이터 넣는다.
+(데이터를 UPDATE하는게 아님.)
+select 
+ ename,
+ ifnull(comm, 100)  **fake!
+from emp
+
+**************************** DATE_FORMAT
+날짜 함수
+SELECT 
+	DATE_FORMAT(HIREDATE,) 
+FROM emp
+
+**************************** DATE_FORMAT을 활용한 그룹핑 방법
+문제) 년도별 입사한 사원 수
+select 
+ date_format(HIREDATE,'%y'),
+ count(*)
+from emp
+ group by date_format(HIREDATE,'%y')
+
+**************************** AND, OR
+WHERE 조건에 동시에 사용할때 가 있음.
+  1. AND (먼저 실행)
+  2. OR
+
+3. 부서가 10, 30에 속하는 사원 중 
+급여가 1500을 넘는 사원의 이름 및 급여를 표시하라.
+
+SELECT 
+ ename,
+ sal
+FORM emp
+WHERE 
+ (
+ deptno = 10
+ or 
+ deptno = 30
+ )
+ and 
+ sal > 1500
+
+ 

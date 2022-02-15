@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=`, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .programs-data {
+        margin: auto;
+        box-shadow: 0 3px 7px grey;
+        background-color: white;
+      }
+
+      .programs-data:hover {
+        box-shadow: 0 0 20px 0px rgba(0, 0, 0, 0.2);
+      }
+
+      tr {
+        border: 1px solid #444444;
+      }
+
+      tr:nth-child(even) {
+        background-color: #eaeaeb;
+      }
+
+      thead {
+        box-shadow: 0 1px 5px grey;
+      }
+
+      th {
+        padding: 1rem 2rem;
+        letter-spacing: 0.4rem;
+        font-size: 1.2rem;
+        font-weight: 900;
+        text-align: center;
+      }
+
+      td {
+        padding: 1rem 2rem;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <table class="programs-data">
+      <thead>
+        <tr>
+          <th></th>
+          <th>시간</th>
+          <th>월</th>
+          <th>화</th>
+          <th>수</th>
+          <th>목</th>
+          <th>금</th>
+          <th>토</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>오전 반</td>
+          <td>11:00 ~ 12:00</td>
+          <td colspan="2">주짓수</td>
+          <td>레슬링</td>
+          <td colspan="2">주짓수</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>오후 반</td>
+          <td>12:00 ~ 13:00</td>
+          <td colspan="5">서킷 트레이닝</td>
+          <td rowspan="2">자유 수련</td>
+        </tr>
+        <tr>
+          <td>키즈 부</td>
+          <td>14:30 ~ 15:30</td>
+          <td colspan="2">주짓수</td>
+          <td>레슬링</td>
+          <td colspan="2">주짓수</td>
+        </tr>
+        <tr>
+          <td>저녁 1부</td>
+          <td>19:30 ~ 21:00</td>
+          <td colspan="2">주짓수</td>
+          <td>레슬링</td>
+          <td colspan="2">주짓수</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>저녁 2부</td>
+          <td>21:00 ~ 22:30</td>
+          <td colspan="2">주짓수</td>
+          <td>레슬링</td>
+          <td colspan="2">주짓수</td>
+          <td>-</td>
+        </tr>
+        <tr>
+          <td>자유 트레이닝</td>
+          <td>22:30 ~ 23:30</td>
+          <td colspan="5">웨이트 훈련</td>
+          <td>-</td>
+        </tr>
+      </tbody>
+    </table>
+  </body>
+</html>

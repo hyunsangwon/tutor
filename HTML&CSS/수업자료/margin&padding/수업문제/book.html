@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
+    <script>
+      //자바스크립트 메소드
+      function doSuccess() {
+        alert('예약 완료!');
+      }
+      function doFail() {
+        alert('예약 취소!');
+      }
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="book-form">
+        <label for="from">출발지</label>
+        <input type="text" id="from" placeholder="출발지를 입력하세요..." />
+        <label for="to">도착지</label>
+        <input type="text" id="to" placeholder="도착지를 입력하세요..." />
+        <label for="to">출발 시간</label>
+        <input type="date" />
+        <input type="time" />
+        <label for="to">도착 시간</label>
+        <input type="date" />
+        <input type="time" />
+        <input
+          class="true"
+          type="button"
+          value="예약 완료"
+          onclick="doSuccess();"
+        />
+        <input
+          class="false"
+          type="button"
+          value="예약 취소"
+          onclick="doFail();"
+        />
+      </div>
+    </div>
+  </body>
+</html>

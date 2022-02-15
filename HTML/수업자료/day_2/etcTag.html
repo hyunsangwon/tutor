@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <progress value="50" min="0" max="100"></progress>
+    <meter
+      min="0"
+      max="100"
+      low="20"
+      high="70"
+      optimum="15"
+      value="100"
+    ></meter>
+    <details>
+      <summary>What is the best food?</summary>
+      <span>갈비</span>
+    </details>
+
+    <label for="movie">What is your favourite movie?</label>
+    <input id="movie" type="text" list="movie-options" />
+    <datalist id="movie-options">
+      <option value="인셉션"></option>
+      <option value="8월의 크리스마스"></option>
+      <option value="라라랜드"></option>
+      <option value="어바웃타임"></option>
+      <option value="뷰티인사이드"></option>
+    </datalist>
+  </body>
+</html>

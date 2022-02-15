@@ -1,0 +1,28 @@
+.home {
+  background-color: #bc867a;
+  width: 30%;
+  height: 200px;
+  /* css 크기 조절 단위 : px, %, (em, rem) ... */
+}
+.menu {
+  background-color: #72b5de;
+  width: 30%;
+  height: 150px;
+  position: relative;
+  left: 100px;
+  top: 0px;
+  /* css position : static, relative, absolute, fixed 
+  static : (디폴트 값) 위치를 지정하지 않을 때 사용.
+  relative : 원래 자리 기준으로 움직인다. 
+  absolute : 원래 위치와 상관없이 위치를 지정할 수 있음. (단, 부모 태그가 relative 있으면 부모 태그 기준으로 움직임.)
+  fixed : 원래 위치와 상관없이 위치를 지정할 수 있음. (부모 태그도 무시) 고정된 위치 가능 
+  */
+}
+.login {
+  background-color: blue;
+  width: 30%;
+  height: 150px;
+  position: absolute;
+  left: 100px;
+  top: 0px;
+}

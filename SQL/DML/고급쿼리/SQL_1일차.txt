@@ -1,0 +1,21 @@
+관계형 데이터베이스를 사용하기에 JOIN은 필수
+
+**************************** JOIN
+JOIN : 두 개 이상의 테이블을 조회할때 사용.
+단, 조회 하고자 하는 테이블들이 관계가 있어야함.
+
+조건 : 관계를 맺고자 하는 테이블에 Foreign Key설정이 되어있어야 한다.
+
+**************************** 조인하는 방법 1. 
+select 
+	e.ename 
+from emp e, dept d
+where e.deptno = d.deptno
+
+**************************** 조인하는 방법 2. (권장)
+select 
+	e.ename
+from emp as e
+join dept as d
+on e.deptno = d.deptno
+where d.deptno = 20

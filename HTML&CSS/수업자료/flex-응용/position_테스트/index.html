@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container-black {
+        position: relative;
+        width: 500px;
+        height: 300px;
+        margin: 100px auto;
+        background-color: black;
+        /* auto is not a valid value for padding property */
+        padding: 30px;
+      }
+      .container-red {
+        width: 250px;
+        height: 150px;
+        background-color: red;
+      }
+      .container-white {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 100px;
+        height: 100px;
+        background-color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- 화이트는 absolute를 이용해서 -->
+      <!-- 검정과 레드는 margin & padding만 사용해서 -->
+      <!-- relative와 absolute 응용 가능한지 -->
+      <div class="container-black">
+        <div class="container-red"></div>
+        <div class="container-white"></div>
+      </div>
+    </div>
+  </body>
+</html>

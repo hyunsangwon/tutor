@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        width: 100%;
+        height: 100vh;
+        background-image: linear-gradient(
+            rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)
+          ),
+          url(images/background.png);
+        background-position: center;
+        background-size: cover;
+        padding-left: 8%;
+        padding-right: 8%;
+      }
+      .header {
+        height: 12%;
+        display: flex;
+        /* padding 해도 되는데 padding auto가 없으므로 */
+        align-items: center;
+      }
+      .logo img {
+        width: 50px;
+        cursor: pointer;
+      }
+      .menu-icon {
+        margin-left: 40px;
+      }
+      .menu-icon img {
+        width: 30px;
+        cursor: pointer;
+      }
+      .nav {
+        /* flex는 flex-grow, flex-shrink, flex-basis의 단축 속성 즉, item에 주는 속성 */
+        flex: 1;
+        text-align: right;
+      }
+      .nav ul li {
+        list-style: none;
+        display: inline-block;
+        margin-left: 60px;
+      }
+      .nav ul li a {
+        text-decoration: none;
+        color: #fff;
+        font-size: 14px;
+      }
+      .row {
+        display: flex;
+        justify-content: space-around;
+        height: 88%;
+        align-items: center;
+      }
+      .col h1 {
+        color: #fff;
+        font-size: 100px;
+      }
+      .col p {
+        color: #fff;
+        font-size: 11px;
+        line-height: 15px;
+      }
+      .col button {
+        width: 180px;
+        color: #000;
+        font-size: 12px;
+        padding: 12px 0;
+        background-color: #fff;
+        border: 0;
+        border-radius: 20px;
+        outline: none;
+        margin-top: 30px;
+      }
+      .col button:hover {
+        cursor: pointer;
+      }
+      .card {
+        width: 200px;
+        height: 230px;
+        display: inline-block;
+        border-radius: 10px;
+        padding: 12px;
+      }
+      .card h5 {
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <div class="logo">
+          <img src="images/logo.png" alt="" />
+        </div>
+        <div class="nav">
+          <ul>
+            <li><a href="">HOME</a></li>
+            <li><a href="">REGION</a></li>
+            <li><a href="">ABOUT</a></li>
+          </ul>
+        </div>
+        <div class="menu-icon">
+          <img src="images/menu.png" alt="" />
+        </div>
+      </div>
+      <!-- row -->
+      <div class="row">
+        <div class="col">
+          <h1>Sahara</h1>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex nesciunt
+            inventore, minima eaque ullam reiciendis nihil enim ipsam iure
+            aperiam quos? Eum saepe tenetur unde laboriosam deleniti amet, omnis
+            non.
+          </p>
+          <button>Click</button>
+        </div>
+        <div class="col">
+          <div class="card">
+            <h5>Western Desert</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae
+              error quae in incidunt ea consequuntur voluptate sed, tempora quis
+              harum sint quia qui aspernatur velit voluptas deserunt eius,
+              cupiditate dignissimos.
+            </p>
+          </div>
+          <div class="card">
+            <h5>Western Desert</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae
+              error quae in incidunt ea consequuntur voluptate sed, tempora quis
+              harum sint quia qui aspernatur velit voluptas deserunt eius,
+              cupiditate dignissimos.
+            </p>
+          </div>
+          <div class="card">
+            <h5>Western Desert</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae
+              error quae in incidunt ea consequuntur voluptate sed, tempora quis
+              harum sint quia qui aspernatur velit voluptas deserunt eius,
+              cupiditate dignissimos.
+            </p>
+          </div>
+          <div class="card">
+            <h5>Western Desert</h5>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae
+              error quae in incidunt ea consequuntur voluptate sed, tempora quis
+              harum sint quia qui aspernatur velit voluptas deserunt eius,
+              cupiditate dignissimos.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

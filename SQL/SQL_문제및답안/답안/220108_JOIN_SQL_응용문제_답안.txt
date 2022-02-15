@@ -1,0 +1,131 @@
+1)
+select 
+ e.ename,
+ e.sal,
+ d.dname
+from emp as e
+inner join dept as d 
+on e.deptno = d.deptno
+where d.DNAME = 'RESEARCH'
+
+2) 
+select 
+ e.ename,
+ e.job,
+ d.dname
+from emp as e
+inner join dept as d 
+on e.deptno = d.deptno
+where e.comm is not null
+
+3)
+select 
+ e.ename,
+ e.job,
+ d.dname,
+ d.loc
+from emp as e
+inner join dept as d 
+on e.deptno = d.deptno
+where e.ename like 'A%'
+
+4)
+select 
+ e.ename as '사원 이름',
+ boss.EMPNO as '사수 번호',
+ boss.ENAME as '사수 이름'
+from emp as e
+left join emp as boss
+on e.MGR = boss.EMPNO 
+
+5) 
+select 
+ e.ename as '사원 이름',
+ ifnull(boss.EMPNO,'사수 없음') as '사수 번호',
+ ifnull(boss.ENAME,'사수 없음') as '사수 이름'
+from emp as e
+left join emp as boss
+on e.MGR = boss.EMPNO
+where e.mgr is null
+
+6)
+select 
+ e.ename as '사원 이름',
+ e.empno as '사원 번호',
+ boss.empno as '상사 번호',
+ boss.ename as '상사 이름'
+from emp as e
+inner join emp as boss 
+on e.mgr = boss.empno
+where e.mgr = '7698'
+
+7)
+select 
+	e.ename as "사원 이름",
+	e.hiredate as "사원 입사",
+	boss.ename as "상사 이름",
+	boss.hiredate as "상사 입사"
+from emp as e
+inner join emp boss
+where e.mgr = boss.empno
+and e.hiredate < boss.hiredate
+
+
+8)
+select 
+ e.empno,
+ e.ename,
+ e.sal,
+ e.job,
+ d.dname,
+ e.HIREDATE 
+from emp as e
+inner join dept as d 
+on e.deptno = d.deptno
+where 
+(
+e.job = 'MANAGER'
+or 
+e.job = 'CLERK'
+)
+and date_format(HIREDATE,'%Y') = '1982'
+
+9)
+select 
+  d.dname,
+  sum(e.sal)
+from emp as e
+right join dept as d 
+on e.DEPTNO = d.DEPTNO 
+group by d.DEPTNO 
+order by 2 desc
+
+10)
+select 
+    e.ename as "사원 이름",
+	boss.ename as "사수 이름",
+    d.deptno as "부서 번호",
+    d.dname as "부서 명 ",
+    d.loc as "근무 지역"
+from emp as e
+inner join emp as boss
+on e.mgr = boss.empno
+right join dept as d
+on d.deptno = e.deptno
+
+11) 
+select 
+    e.empno as "사원 번호",
+	e.ename as "사원 이름",
+	boss.empno as "사수 번호",
+	boss.ename as "사수 이름",
+	boss.sal as "사수 급여",
+	d.DNAME as "부서 명"
+from emp as e
+inner join dept as d 
+on e.deptno = d.deptno
+inner join emp as boss
+on e.mgr = boss.empno 
+where d.loc = 'CHICAGO'
+and boss.sal < 5000
+order by e.HIREDATE asc
