@@ -44,9 +44,10 @@
 
     -- 이벤트 종류
     -- cascade : 자식 데이터 삭제or 수정
-    -- set null : 자식 데이터 삭제or 수정시 null로 업데이트
-    -- set default : 자식 데이터 삭제or 수정시 참조 컬럼을 Default 값으로 업데이트
+    -- set null : 자식 데이터 null로 업데이트
+    -- set default : 자식 데이터 참조 컬럼을 Default 값으로 업데이트
     -- restrict(default) : 자식 테이블이 참조하고 있을 경우, 데이터 삭제or 수정 불가
+    -- no action : 자식 테이블의 데이터는 변경되지 않습니다.
 ```
 
 ### primary key, unique key, foreign key 특징
