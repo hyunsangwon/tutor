@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .card-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        width: 100%;
+        background-color: #000;
+      }
+      .card {
+        width: 500px;
+        height: 300px;
+        color: #fff;
+        cursor: pointer;
+      }
+      .card-inner {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .front,
+      .back {
+        width: 100%;
+        height: 100%;
+        background-image: linear-gradient(45deg, #0045c7, #ff2c7d);
+        position: absolute;
+        top: 0;
+        left: 0;
+        padding: 20px 30px;
+        border-radius: 15px;
+        overflow: hidden;
+        z-index: 1;
+      }
+      .map-img {
+        width: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        opacity: 0.3;
+        z-index: -1;
+      }
+      .card-no {
+        font-size: 35px;
+        margin-top: 60px;
+      }
+      .card-holder {
+        font-size: 12px;
+        margin-top: 40px;
+      }
+      .name {
+        font-size: 22px;
+        margin-top: 10px;
+      }
+      .bar {
+        background-color: #222;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row card-container">
+        <div class="card">
+          <div class="card-inner">
+            <div class="front">
+              <img src="img/map.png" class="map-img" />
+              <div class="row">
+                <img src="img/chip.png" width="60px" />
+                <img src="img/visa.png" width="80px" />
+              </div>
+              <div class="row card-no">
+                <p>5244</p>
+                <p>2150</p>
+                <p>8252</p>
+                <p>6420</p>
+              </div>
+              <div class="row card-holder">
+                <p>CARD HOLDER</p>
+                <p>VALLID TILL</p>
+              </div>
+              <div class="row name">
+                <p>HYUN SANG WON</p>
+                <p>10 / 25</p>
+              </div>
+            </div>
+            <!-- front end -->
+            <div class="back">
+              <img src="img/map.png" class="map-img" />
+              <div class="bar"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
