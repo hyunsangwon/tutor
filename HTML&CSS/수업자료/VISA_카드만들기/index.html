@@ -29,11 +29,14 @@
         height: 300px;
         color: #fff;
         cursor: pointer;
+        perspective: 1000px;
       }
       .card-inner {
         width: 100%;
         height: 100%;
         position: relative;
+        transition: transform 1s;
+        transform-style: preserve-3d;
       }
       .front,
       .back {
@@ -47,6 +50,7 @@
         border-radius: 15px;
         overflow: hidden;
         z-index: 1;
+        backface-visibility: hidden;
       }
       .map-img {
         width: 100%;
@@ -70,7 +74,40 @@
       }
       .bar {
         background-color: #222;
-        /* test */
+        margin-left: -30px;
+        margin-right: -30px;
+        height: 60px; 
+        margin-top: 10px;
+      }
+      .card-cvv{
+        margin-top: 20px;
+      }
+      .card div{
+        flex: 1;
+      }
+      .card-cvv img{
+        width: 100%;
+        display: block;
+        inset-inline: 0;
+      }
+      .card-cvv p{
+        background-color: #fff;
+        color: #000;
+        font-size: 22px;
+        padding: 10px;
+      }
+      .card-text{
+        margin-top: 30px;
+        font-size: 14px;
+      }
+      .signature{
+        margin-top: 27px;
+      }
+      .back{
+        transform: rotateY(180deg);
+      }
+      .card:hover .card-inner{
+        transform: rotateY(-180deg);
       }
     </style>
   </head>
@@ -104,6 +141,19 @@
             <div class="back">
               <img src="img/map.png" class="map-img" />
               <div class="bar"></div>
+              <div class="row card-cvv">
+                <div><img src="img/pattern.png" alt=""></div>
+                <p>824</p>
+              </div>
+              <div class="row card-text">
+                <p>This is a virtual card design built using HTML and CSS.
+                  You can also design something like this.
+                </p>
+              </div>
+              <div class="row signature">
+                <p>CUSTOMER SIGNATURE</p>
+                <img src="img/visa.png" width="80px">
+              </div>
             </div>
           </div>
         </div>
