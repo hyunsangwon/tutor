@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .row {
+        margin-top: 3%;
+        display: flex;
+        justify-content: space-between;
+      }
+      .gallery {
+        width: 80%;
+        margin: auto;
+      }
+      .gallery-title {
+        text-align: center;
+      }
+      .gallery-title h1 {
+        font-size: 36px;
+        font-weight: 700;
+      }
+      .gallery-title p {
+        color: #777;
+        font-size: 16px;
+        font-weight: 600;
+        line-height: 22px;
+      }
+      .gallery-col {
+        /* flex-basis CSS 속성은 플렉스 아이템의 초기 크기를 지정 */
+        flex-basis: 22%;
+        position: relative;
+      }
+      .gallery-col img {
+        width: 100%;
+        height: 90%;
+        border-radius: 10px;
+      }
+      .layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 90%;
+      }
+      .layer h3 {
+        position: absolute;
+        /* opacity 투명도 조절 0 ~ 1 */
+        transform: translateX(-50%);
+        transition: 0.6s;
+        opacity: 0;
+        bottom: 0;
+        left: 35%;
+        font-size: 20px;
+        color: rgba(46, 49, 49, 1);
+      }
+      .layer:hover {
+        background-color: rgba(232, 232, 232, 0.8);
+      }
+      .layer:hover h3 {
+        opacity: 1;
+        bottom: 48%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- semantic tag -->
+      <!-- <section class="gallery"></section> -->
+      <!-- 네이버 방법 -->
+      <div class="section gallery">
+        <!-- 사진, 사진 소개내용, 사진 부가설명 -->
+        <!-- 사진 설명 방법 1-->
+        <div class="gallery-title">
+          <!-- .intro{
+            color : #fff;
+            intro 태그 안에 있는 모든 요소 폰트 칼라는 화이트로 변경
+          } -->
+          <h1>팀그라운드 주짓수 소개</h1>
+          <p>팀그라운드는 대전 전민동에 있으며...</p>
+        </div>
+        <div class="row">
+          <!-- div.gallery-col*4 -->
+          <div class="gallery-col">
+            <img src="img/group1.jpg" alt="" />
+            <div class="layer">
+              <h3>사진소개1</h3>
+            </div>
+          </div>
+          <div class="gallery-col">
+            <img src="img/group2.jpg" alt="" />
+            <div class="layer">
+              <h3>사진소개2</h3>
+            </div>
+          </div>
+          <div class="gallery-col">
+            <img src="img/group3.jpg" alt="" />
+            <div class="layer">
+              <h3>사진소개3</h3>
+            </div>
+          </div>
+          <div class="gallery-col">
+            <img src="img/group2.jpg" alt="" />
+            <div class="layer">
+              <h3>사진소개4</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
