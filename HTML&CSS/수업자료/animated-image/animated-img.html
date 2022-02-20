@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>animated image</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .animated-container {
+        position: relative;
+        background-color: #777;
+        height: auto;
+        width: 70%;
+        margin: 30px auto 0;
+      }
+      .animated-container img {
+        width: 50%;
+        height: auto;
+      }
+      .elements {
+        position: absolute;
+        top: 0;
+        left: 0;
+        /* linear : 처음부터 끝까지 일정한 속도로 진행 */
+        /* 이름을 설정해야 애니메이션을 재생할 수 있습니다. (이름 : move) */
+        animation: move linear 1.5s infinite;
+      }
+      /* 0%는 애니메이션의 시작 부분을 의미하고 100%는 애니메이션의 종료 부분을 의미 */
+      @keyframes move {
+        0% {
+          transform: translate(-15px, 0px);
+        }
+        50% {
+          transform: translate(0px, -15px);
+        }
+        100% {
+          transform: translate(-15px, 0px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="animated-container">
+        <img src="man.png" alt="" />
+        <img class="elements" src="elements.png" alt="" />
+      </div>
+    </div>
+  </body>
+</html>
