@@ -27,6 +27,8 @@
 ```
 
 ```sql
+-- primary key 간단하게 사용하는 방법
+-- foreign key 사용하는 방법
     create table employee
     (
   	id int auto_increment primary key,
@@ -41,7 +43,6 @@
     -- 외래키 옵션
     on delete : 부모 데이터에 삭제 이벤트가 발생하면 자식 데이터에 이벤트 발생
     on update : 부모 데이터에 수정 이벤트가 발생하면 자식 데이터에 이벤트 발생
-
     -- 이벤트 종류
     -- cascade : 자식 데이터 삭제or 수정
     -- set null : 자식 데이터 null로 업데이트
@@ -70,8 +71,13 @@
     -- how : 아래 2가지 방법을 많이 사용.
     -- 1. FOREIGN KEY (dept_id) REFERENCES  department(id) (관리 힘듬..)
     -- 2. CONSTRAINT student_id_fk FOREIGN KEY (dept_id) REFERENCES  department(id) (테이블이 많아질 때 관리할 수 있음)
+    -- * 외래 키를 기본 키처럼 사용하고 싶으면 외래 키 컬럼에 unique key 적용하면 된다.
     unique key : 유니크 키
     -- PK 와 마찬가지로 중복성이 허용되지 않지만 NULL 허용.
+    -- 여러컬럼에 사용하는 방법
+    CREATE TABLE emp(deptno int,mgr int, UNIQUE KEY emp(deptno, mgr));
+    -- 단일컬럼에 사용하는 방법
+    CREATE TABLE emp(deptno int UNIQUE KEY);
 ```
 
 ### DROP
