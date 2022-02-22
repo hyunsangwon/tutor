@@ -5,7 +5,7 @@
     테이블 생성
 
 ```sql
--- PK 없는 table
+-- PK가 없는 table 생성
     CREATE TABLE student
     (
         id INT(11) NOT NULL,
@@ -14,7 +14,8 @@
         age INT(5) DEFAULT 0,
         create_at DATETIME DEFAULT CURRENT_TIMESTAMP
     );
--- PK 있는 table
+-- PK가 있는 table 생성
+-- AUTO_INCREMENT을 이용하여 INSERT할 때마다 자동 증가
     CREATE TABLE student
     (
         id INT(11) NOT NULL AUTO_INCREMENT,
@@ -24,6 +25,7 @@
         create_at DATETIME DEFAULT CURRENT_TIMESTAMP,
         CONSTRAINT student_id_pk PRIMARY KEY(id)
     );
+-- PK
 ```
 
 ```sql
