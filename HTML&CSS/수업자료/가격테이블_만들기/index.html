@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .plan {
+        /* Auto is not a valid value for padding property */
+        margin: 30px auto 30px;
+        width: 90%;
+        height: auto;
+      }
+      .title h1 {
+        text-align: center;
+        padding-top: 50px;
+        margin-bottom: 30px;
+      }
+      .row {
+        display: flex;
+        justify-content: space-around;
+      }
+      .item {
+        border-radius: 10px;
+        background-color: #1f283b;
+        padding: 2% 6%;
+        color: #fff;
+        text-align: center;
+      }
+      .item p {
+        font-size: 22px;
+      }
+      .item h2 {
+        font-size: 44px;
+        margin: 20px 0 40px;
+        font-weight: 500;
+      }
+      .item h2 span {
+        font-size: 18px;
+      }
+      .item ul {
+        text-align: left;
+        margin: 20px 0;
+        color: #ddd;
+      }
+      .item ul li {
+        margin: 15px 0;
+      }
+      .item button {
+        width: 100%;
+        padding: 14px 0;
+        background: transparent;
+        color: #fff;
+        font-size: 15px;
+        border: 1px solid #e33058;
+        border-radius: 6px;
+        cursor: pointer;
+        margin-top: 30px;
+        transition: background 0.5s;
+      }
+      .item button:hover {
+        background-color: #e33058;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="plan">
+        <div class="title">
+          <h1>Choose your plan</h1>
+        </div>
+        <div class="row">
+          <div class="item">
+            <p>Starter</p>
+            <h2>19$ <span>/month</span></h2>
+            <ul>
+              <li>1 Website</li>
+              <li>10 GB Disk Space</li>
+              <li>Free Email Address</li>
+              <li>Basic Web builder</li>
+              <li>No SSL Certificate</li>
+              <li>Limited Support</li>
+            </ul>
+            <button>Add to Cart</button>
+          </div>
+          <div class="item">
+            <p>Starter</p>
+            <h2>19$ <span>/month</span></h2>
+            <ul>
+              <li>1 Website</li>
+              <li>10 GB Disk Space</li>
+              <li>Free Email Address</li>
+              <li>Basic Web builder</li>
+              <li>No SSL Certificate</li>
+              <li>Limited Support</li>
+            </ul>
+            <button>Add to Cart</button>
+          </div>
+          <div class="item">
+            <p>Starter</p>
+            <h2>19$ <span>/month</span></h2>
+            <ul>
+              <li>1 Website</li>
+              <li>10 GB Disk Space</li>
+              <li>Free Email Address</li>
+              <li>Basic Web builder</li>
+              <li>No SSL Certificate</li>
+              <li>Limited Support</li>
+            </ul>
+            <button>Add to Cart</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
