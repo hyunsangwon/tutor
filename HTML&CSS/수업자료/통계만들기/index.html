@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <title>KPI DASHBOARD</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        width: 100%;
+        background-color: #778;
+      }
+      .dashboard {
+        padding: 2%;
+      }
+      .dashboard-title h1 {
+        text-align: center;
+        color: #fff;
+        font-weight: 500;
+        font-size: 40px;
+      }
+      .row {
+        margin: 2% auto 0;
+        display: flex;
+        width: 50%;
+        height: 80px;
+        background-color: #fff;
+        justify-content: space-around;
+        border-radius: 10px;
+        align-items: center;
+      }
+      .col input {
+        width: 100%;
+        height: 40px;
+        border-radius: 5px;
+        padding: 3%;
+        font-size: 15px;
+      }
+      .dashboard-graph {
+        margin-top: 2%;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 30px;
+      }
+      .dashboard-graph-circle {
+        width: 100%;
+        height: auto;
+        background-color: #fff;
+        padding: 6% 3%;
+        border-radius: 15px;
+      }
+      .dashboard-graph-circle h3 {
+        font-size: 20px;
+        text-align: center;
+        margin-bottom: 5%;
+      }
+      .dashboard-graph-circle p {
+        margin-bottom: 2%;
+        text-align: left;
+        width: 60%;
+      }
+      .yellow-percent {
+        color: #f6c23e;
+      }
+      .blue-percent {
+        color: #4e73df;
+      }
+      .red-percent {
+        color: #e74a3b;
+      }
+      .border {
+        position: relative;
+      }
+      .border p {
+        position: absolute;
+        font-size: 30px;
+        font-weight: 700;
+        bottom: 38%;
+        left: 39%;
+      }
+      .yellow {
+        border-top: 7px solid #f6c23e;
+      }
+      .red {
+        border-top: 7px solid #e74a3b;
+      }
+      .blue {
+        border-top: 7px solid #4e73df;
+      }
+      .footer {
+        position: fixed;
+        bottom: 10px;
+        right: 10px;
+        background-color: #fff;
+        border-radius: 5px;
+        padding: 1%;
+      }
+      .footer p {
+        font-size: 15px;
+        font-weight: 600;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="dashboard">
+        <div class="dashboard-title">
+          <h1>Monthly Dashboard KPI</h1>
+        </div>
+        <div class="row">
+          <div class="col">
+            <input type="date" />
+          </div>
+          <div class="col">
+            <input type="month" />
+          </div>
+          <div class="col">
+            <input type="week" />
+          </div>
+        </div>
+        <div class="dashboard-graph">
+          <div class="dashboard-graph-circle">
+            <h3>Capacity Utilization</h3>
+            <p class="yellow-percent">86.8%</p>
+            <p>Target : <span>94.0%</span></p>
+            <p>Last Year : <span>80.0%</span></p>
+            <div class="border yellow">
+              <p>91%</p>
+              <canvas id="myChart"></canvas>
+            </div>
+          </div>
+          <div class="dashboard-graph-circle">
+            <h3>Equipment Effectiveness</h3>
+            <p class="blue-percent">75.8%</p>
+            <p>Target : <span>94.0%</span></p>
+            <p>Last Year : <span>80.0%</span></p>
+            <div class="border blue">
+              <p>107%</p>
+              <canvas id="myChart2"></canvas>
+            </div>
+          </div>
+          <div class="dashboard-graph-circle">
+            <h3>ON-time Delivery</h3>
+            <p class="yellow-percent">94.8%</p>
+            <p>Target : <span>94.0%</span></p>
+            <p>Last Year : <span>80.0%</span></p>
+            <div class="border yellow">
+              <p>99%</p>
+              <canvas id="myChart3"></canvas>
+            </div>
+          </div>
+          <div class="dashboard-graph-circle">
+            <h3>Total Cycle Time</h3>
+            <p class="red-percent">8.0%</p>
+            <p>Target : <span>7.0%</span></p>
+            <p>Last Year : <span>7.0%</span></p>
+            <div class="border red">
+              <p>86%</p>
+              <canvas id="myChart4"></canvas>
+            </div>
+          </div>
+          <div class="dashboard-graph-circle">
+            <h3>Thoroughput</h3>
+            <p class="blue-percent">2.0%</p>
+            <p>Target : <span>2.1%</span></p>
+            <p>Last Year : <span>2.3%</span></p>
+            <div class="border blue">
+              <p>70%</p>
+              <canvas id="myChart5"></canvas>
+            </div>
+          </div>
+          <div class="dashboard-graph-circle">
+            <h3>Thoroughput</h3>
+            <p class="blue-percent">2.0%</p>
+            <p>Target : <span>2.1%</span></p>
+            <p>Last Year : <span>2.3%</span></p>
+            <div class="border blue">
+              <p>77%</p>
+              <canvas id="myChart6"></canvas>
+            </div>
+          </div>
+          <div class="dashboard-graph-circle">
+            <h3>Total Cycle Time</h3>
+            <p class="red-percent">8.0%</p>
+            <p>Target : <span>7.0%</span></p>
+            <p>Last Year : <span>7.0%</span></p>
+            <div class="border red">
+              <p>50%</p>
+              <canvas id="myChart7"></canvas>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- dashboard ui -->
+      <div class="footer">
+        <p>made by 현상원</p>
+      </div>
+    </div>
+    <script>
+      const data_yellow = {
+        datasets: [
+          {
+            label: 'My First Dataset',
+            data: [20, 80],
+            backgroundColor: ['rgb(245, 245, 245)', 'rgb(255, 205, 86)'],
+            hoverOffset: 4,
+          },
+        ],
+      };
+      const data_blue = {
+        datasets: [
+          {
+            label: 'My First Dataset',
+            data: [30, 70],
+            backgroundColor: ['rgb(245, 245, 245)', 'rgb(54, 162, 235)'],
+            hoverOffset: 4,
+          },
+        ],
+      };
+      const data_red = {
+        datasets: [
+          {
+            label: 'My First Dataset',
+            data: [50, 50],
+            backgroundColor: ['rgb(245, 245, 245)', 'rgb(255, 99, 132)'],
+            hoverOffset: 4,
+          },
+        ],
+      };
+      const config = {
+        type: 'doughnut',
+        data: data_yellow,
+        options: {},
+      };
+      const config2 = {
+        type: 'doughnut',
+        data: data_blue,
+        options: {},
+      };
+      const config3 = {
+        type: 'doughnut',
+        data: data_red,
+        options: {},
+      };
+      const myChart = new Chart(document.getElementById('myChart'), config);
+      const myChart2 = new Chart(document.getElementById('myChart2'), config2);
+      const myChart3 = new Chart(document.getElementById('myChart3'), config);
+      const myChart4 = new Chart(document.getElementById('myChart4'), config3);
+      const myChart5 = new Chart(document.getElementById('myChart5'), config2);
+      const myChart6 = new Chart(document.getElementById('myChart6'), config2);
+      const myChart7 = new Chart(document.getElementById('myChart7'), config3);
+    </script>
+  </body>
+</html>
