@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .chat-container {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      .chatbox {
+        background-color: #1d61c2;
+        width: 60%;
+        min-width: 250px;
+        display: flex;
+      }
+      .col-1 {
+        flex: 1;
+      }
+      .col-2 {
+        flex-basis: 250px;
+        background-color: #3874c9;
+      }
+      .msg-row {
+        display: flex;
+        align-items: center;
+        margin: 40px;
+      }
+      .msg-text {
+        background: rgba(255, 255, 255, 0.1);
+        padding: 20px 40px;
+        border-radius: 8px;
+        flex-basis: 70%;
+        font-weight: 300;
+        color: #fff;
+      }
+      .msg-text h2 {
+        font-weight: 400;
+        font-size: 22px;
+        margin-bottom: 10px;
+      }
+      .msg-img {
+        width: 50px;
+        height: 50px;
+        background-color: #777;
+        border-radius: 50%;
+        margin: 0 20px;
+      }
+      .reply {
+        justify-content: flex-end;
+      }
+      .col-1 input {
+        border: 2px solid #777;
+        outline: none;
+        padding: 20px 40px;
+        background-color: #3874c9;
+        color: #fff;
+        width: 100%;
+        font-size: 16px;
+        font-weight: 300;
+      }
+      ::placeholder {
+        color: #fff;
+      }
+      .col-2 h3 {
+        text-align: center;
+        margin-top: 40px;
+        font-weight: 400;
+      }
+      .col-2 ul {
+        list-style: none;
+        padding: 30px;
+      }
+      .col-2 ul li {
+        padding: 5px 0;
+      }
+      .col-2 ul li::before {
+        content: '';
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: red;
+        display: inline-block;
+        margin-right: 10px;
+      }
+      .col-2 ul li.online::before {
+        background-color: greenyellow;
+      }
+      .col-2 ul li.offline::before {
+        background-color: tomato;
+      }
+      .col-2 ul li.busy::before {
+        background-color: yellow;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="chat-container">
+        <div class="chatbox">
+          <div class="col-1">
+            <div class="msg-row">
+              <div class="msg-text">
+                <h2>현상원</h2>
+                <p>오늘 점심은 한가람 오불 어떤가요?</p>
+              </div>
+              <div class="msg-img">이미지 영역</div>
+            </div>
+            <div class="msg-row reply">
+              <div class="msg-text">
+                <h2>홍길동</h2>
+                <p>아 좋습니다. 먹고 커피한잔도 하시죠!</p>
+              </div>
+              <div class="msg-img">이미지 영역</div>
+            </div>
+            <div class="msg-row">
+              <div class="msg-text">
+                <h2>현상원</h2>
+                <p>네 ~</p>
+              </div>
+              <div class="msg-img">이미지 영역</div>
+            </div>
+            <input type="text" placeholder="Type your messages here..." />
+          </div>
+          <div class="col-2">
+            <h3>Friend List</h3>
+            <ul>
+              <li class="online">홍길동</li>
+              <li class="offline">홍길동</li>
+              <li class="busy">홍길동</li>
+              <li class="busy">홍길동</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
