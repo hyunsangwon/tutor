@@ -3,13 +3,13 @@
   padding: 0;
   box-sizing: border-box;
 }
-body {
+/* body {
   height: 100vh;
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.2)),
     url(pexels-photo-9049082.jpeg);
   background-position: center;
   background-size: cover;
-}
+} */
 .book-form {
   width: 400px;
   height: auto;
