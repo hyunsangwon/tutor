@@ -45,6 +45,9 @@
       .dashboard-graph {
         margin-top: 2%;
         display: grid;
+        /* 1fr fraction */
+        /* repeat(반복횟수, 반복값) */
+        /* minmax : 최소한 100px, 최대는 자동으로(auto) 늘어나게 */
         grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
         grid-gap: 30px;
       }
