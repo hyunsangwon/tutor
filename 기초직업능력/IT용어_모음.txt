@@ -58,3 +58,9 @@ IT 용어 정리 (21.12.31 ~ )
 공통점 : 서버에 데이터를 전송하는 방법. (*http 메소드(함수) 종류 중에 해당함.)
 - GET : public 전송 (*http header에 데이터를 넣어서 전송)
 - POST : private 전송 (*http body에 데이터를 넣어서 전송)
+
+17. DHCP, Static IP
+DHCP : 아이피가 유동적으로 바뀜(default)
+(학교, 회사, 카페 등등...)
+Static IP : 고정 아이피
+(만든 서비스를 제공할 때)
