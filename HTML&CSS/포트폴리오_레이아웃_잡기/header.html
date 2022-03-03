@@ -148,13 +148,44 @@
         margin: 16px 0;
         font-family: 'Roboto Mono', monospace;
       }
+      span {
+        /* display: inline-block; 이어야 animation 실행! */
+        display: inline-block;
+        animation: waviy 1s infinite;
+        animation-delay: calc(0.1s * var(--i));
+        font-family: 'Alfa Slab One', cursive;
+      }
+      @keyframes waviy {
+        0%,
+        40%,
+        100% {
+          transform: translateY(0);
+        }
+        20% {
+          transform: translateY(-20px);
+        }
+      }
     </style>
   </head>
   <body>
     <div class="header">
       <div class="main-container">
         <div class="greeting-wrapper">
-          <h1>Hello, World! <i class="bx bx-cool"></i></h1>
+          <h1>
+            <span style="--i: 1">H</span>
+            <span style="--i: 2">e</span>
+            <span style="--i: 3">l</span>
+            <span style="--i: 4">l</span>
+            <span style="--i: 5">o</span>
+            <span style="--i: 6">,</span>
+            <span style="--i: 7">W</span>
+            <span style="--i: 8">o</span>
+            <span style="--i: 9">r</span>
+            <span style="--i: 10">l</span>
+            <span style="--i: 11">d</span>
+            <span style="--i: 12">!</span>
+            <!-- <i class="bx bx-cool"></i> -->
+          </h1>
         </div>
         <div class="intro-wrapper">
           <!-- intro div에는 nav, 내정보, 대표 소개글 -->
