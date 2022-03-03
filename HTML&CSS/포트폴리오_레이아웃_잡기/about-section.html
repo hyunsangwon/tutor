@@ -29,20 +29,54 @@
       }
       .about-wrapper {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         padding: 50px 0;
       }
-      .about-me{
-        min-width: 320px;
+      .about-me {
+        width: 550px;
         height: auto;
-        border : 2px solid black;
       }
-      .skills{
-         display: flex;
-         justify-content: space-evenly;
-         background-color: #f0ead6;
+      .about-me p {
+        margin: 16px 0;
       }
-
+      .about-me h4 {
+        font-size: 24px;
+        margin: 32px 0;
+      }
+      .skills {
+        display: flex;
+        justify-content: space-evenly;
+        background-color: #f0ead6;
+        border-radius: 10px;
+      }
+      .skills ul {
+        padding-left: 40px;
+        padding: 16px 0;
+      }
+      .skills ul li {
+        color: #4b5156;
+        font-family: 'Roboto Mono', monospace;
+      }
+      .social-links {
+        width: 550px;
+        height: auto;
+      }
+      .social-links img {
+        width: 100%;
+        border-radius: 10px;
+        height: auto;
+        object-fit: cover;
+      }
+      .social-links h3 {
+        text-align: center;
+        margin: 28px 0;
+        font-size: 28px;
+      }
+      .github {
+        text-align: center;
+        font-size: 18px;
+        font-weight: 600;
+      }
     </style>
   </head>
   <body>
@@ -64,6 +98,7 @@
                 거미줄이 촘촘할수록 더 좋은 먹이가 걸리는 것처럼 사이드
                 프로젝트를 통해 실력을 쌓고 있습니다.
               </p>
+              <hr />
               <h4>TOP Expertise</h4>
               <p>Fullstack developer with primary focus on Nest.js + AWS:</p>
               <div class="skills">
@@ -84,7 +119,13 @@
               </div>
             </div>
             <!-- 개인 깃허브 링크 OR 블로그 링크 -->
-            <div class="social-links"></div>
+            <div class="social-links">
+              <img src="github.PNG" alt="" />
+              <h3>Find me on GitHub</h3>
+              <div class="github">
+                <a href="#">Click Github URL</a>
+              </div>
+            </div>
           </div>
         </div>
       </section>
