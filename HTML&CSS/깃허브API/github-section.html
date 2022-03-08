@@ -15,7 +15,8 @@
         $.ajax({
           type: 'GET',
           //깃허브 모든 repo
-          url: 'https://api.github.com/users/hyunsangwon',
+          // url: 'https://api.github.com/users/hyunsangwon',
+          url: 'https://api.github.com/repos/hyunsangwon/DW_memo/stats/contributors',
           dataType: 'json',
           success: function (response) {
             //json형태로 return함
