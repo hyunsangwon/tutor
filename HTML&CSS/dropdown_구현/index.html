@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .navbar {
+        display: flex;
+        justify-content: space-between;
+        background-color: #333;
+        width: 100%;
+      }
+      .dropdown {
+        position: relative;
+        flex-basis: 30%;
+        padding: 2%;
+      }
+      .dropdown button {
+        font-size: 36px;
+        border: none;
+        outline: none;
+        padding: 14px 16px;
+        background-color: inherit;
+        color: #fff;
+        transition: 0.5s;
+      }
+      .dropdown:hover button {
+        background-color: red;
+      }
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+      }
+
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        /* a 태그는 inline이기 때문에 block으로 해줘야 함 */
+        display: block;
+        text-align: left;
+      }
+
+      .dropdown-content a:hover {
+        background-color: #ddd;
+      }
+
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="navbar">
+        <div class="dropdown">
+          <button>Dropdown</button>
+          <div class="dropdown-content">
+            <a href="#">Link1</a>
+            <a href="#">Link2</a>
+            <a href="#">Link3</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
