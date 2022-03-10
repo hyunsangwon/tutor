@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .row {
+        width: 1200px;
+        margin: 30px auto;
+        display: flex;
+        border: 2px solid black;
+        height: 200px;
+      }
+      .item {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 30%;
+      }
+      .tab {
+        flex-basis: 33.3%;
+        border: 2px solid black;
+        cursor: pointer;
+      }
+      .tab h2 {
+        text-align: center;
+      }
+      .content {
+        flex-basis: 70%;
+        border: 2px solid red;
+        font-size: 42px;
+        text-align: center;
+      }
+      .a {
+        display: block;
+      }
+      .b {
+        display: none;
+      }
+      .c {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="item">
+          <div class="tab" onclick="setMenu('tab1')">
+            <h2>TAB1</h2>
+          </div>
+          <div class="tab" onclick="setMenu('tab2')">
+            <h2>TAB2</h2>
+          </div>
+          <div class="tab" onclick="setMenu('tab3')">
+            <h2>TAB3</h2>
+          </div>
+        </div>
+        <div id="a" class="content a">Hello World A</div>
+        <div id="b" class="content b">Hello World B</div>
+        <div id="c" class="content c">Hello World C</div>
+      </div>
+    </div>
+    <script>
+      function setMenu(value) {
+        if (value == 'tab1') {
+          document.getElementById('a').style.display = 'block';
+          document.getElementById('b').style.display = 'none';
+          document.getElementById('c').style.display = 'none';
+        }
+        if (value == 'tab2') {
+          document.getElementById('a').style.display = 'none';
+          document.getElementById('b').style.display = 'block';
+          document.getElementById('c').style.display = 'none';
+        }
+        if (value == 'tab3') {
+          document.getElementById('a').style.display = 'none';
+          document.getElementById('b').style.display = 'none';
+          document.getElementById('c').style.display = 'block';
+        }
+      }
+    </script>
+  </body>
+</html>
