@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      href="https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        transition: 0.3s;
+        scroll-behavior: smooth;
+      }
+      .container {
+        padding: 5%;
+        width: 100%;
+        height: auto;
+        background-image: url(images/back.png);
+        background-position: center;
+        background-size: cover;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        grid-gap: 50px;
+      }
+      .card {
+        height: 430px;
+        color: #fff;
+        text-align: center;
+        padding: 40px 30px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.2);
+        border-radius: 16px;
+        box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+        backdrop-filter: blur(7px);
+      }
+      .card img {
+        width: 140px;
+        border-radius: 50%;
+      }
+      .card h2 {
+        font-size: 40px;
+        font-weight: 600;
+        margin-top: 20px;
+      }
+      .card p {
+        font-size: 18px;
+        margin: 10px auto;
+        max-width: 330px;
+      }
+      .card .links i {
+        font-size: 50px;
+        margin: 15px 5px;
+        background-color: #fff;
+        border-radius: 50%;
+        transition: background 0.5s;
+      }
+      .card .links i:hover {
+        background-color: #24292f;
+        border-radius: 40%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="card" data-tilt>
+        <img src="images/hyunsangwon.jpg" />
+        <h2>현상원</h2>
+        <p>AWS와 JavaScript를 좋아합니다.</p>
+        <div class="links">
+          <a href="https://github.com/hyunsangwon">
+            <i class="bx bxl-github"></i>
+          </a>
+        </div>
+      </div>
+      <div class="card" data-tilt>
+        <img src="images/hyunsangwon.jpg" />
+        <h2>현상원</h2>
+        <p>AWS와 JavaScript를 좋아합니다.</p>
+        <div class="links">
+          <a href="https://github.com/hyunsangwon">
+            <i class="bx bxl-github"></i>
+          </a>
+        </div>
+      </div>
+      <div class="card" data-tilt>
+        <img src="images/hyunsangwon.jpg" />
+        <h2>현상원</h2>
+        <p>AWS와 JavaScript를 좋아합니다.</p>
+        <div class="links">
+          <a href="https://github.com/hyunsangwon">
+            <i class="bx bxl-github"></i>
+          </a>
+        </div>
+      </div>
+      <div class="card" data-tilt>
+        <img src="images/hyunsangwon.jpg" />
+        <h2>현상원</h2>
+        <p>AWS와 JavaScript를 좋아합니다.</p>
+        <div class="links">
+          <a href="https://github.com/hyunsangwon">
+            <i class="bx bxl-github"></i>
+          </a>
+        </div>
+      </div>
+      <div class="card" data-tilt>
+        <img src="images/hyunsangwon.jpg" />
+        <h2>현상원</h2>
+        <p>AWS와 JavaScript를 좋아합니다.</p>
+        <div class="links">
+          <a href="https://github.com/hyunsangwon">
+            <i class="bx bxl-github"></i>
+          </a>
+        </div>
+      </div>
+      <div class="card" data-tilt>
+        <img src="images/hyunsangwon.jpg" />
+        <h2>현상원</h2>
+        <p>AWS와 JavaScript를 좋아합니다.</p>
+        <div class="links">
+          <a href="https://github.com/hyunsangwon">
+            <i class="bx bxl-github"></i>
+          </a>
+        </div>
+      </div>
+      <div class="card" data-tilt>
+        <img src="images/hyunsangwon.jpg" />
+        <h2>현상원</h2>
+        <p>AWS와 JavaScript를 좋아합니다.</p>
+        <div class="links">
+          <a href="https://github.com/hyunsangwon">
+            <i class="bx bxl-github"></i>
+          </a>
+        </div>
+      </div>
+    </div>
+    <script src="vanilla-tilt.js"></script>
+  </body>
+</html>
