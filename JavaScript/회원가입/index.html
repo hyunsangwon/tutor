@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        .container{
+            margin: 100px auto;
+            background: rgba(232, 232, 232, 0.5);
+            width: 800px;
+            height: auto;
+            padding: 3%;
+        }
+        .container h1{
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .container input{
+            width: 100%;
+            height: 30px;
+            margin-bottom: 5px;
+        }
+        .container select{
+            width: 100%;
+            height: 30px;
+            margin-bottom: 5px;
+        }
+        .row{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        .row input{
+            flex-basis: 30%;
+        }
+        .row select{
+            flex-basis: 30%;
+        }
+        button{
+            color: #fff;
+            border: solid 1px rgba(0,0,0,.08);
+            background-color: #03c75a;
+            width: 100%;
+            padding: 15px 0 15px;
+            margin-top: 10px;
+            font-size: 18px;
+            font-weight: 700;
+            text-align: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>회원 가입</h1>
+        <label for="userId">아이디</label>
+        <input id="userId" type="text">
+        <label for="password">비밀번호</label>
+        <input id="password" type="password">
+        <label for="rePassword">비밀번호 재확인</label>
+        <input id="rePassword" type="password">
+        <label for="userName">이름</label>
+        <input id="userName" type="text">
+        <label for="yy">생년월일</label>
+        <div class="row">
+            <input id="yy" type="text" placeholder="년(4자)">
+            <select name="gender" id="pet-select">
+                <option selected>월</option>
+                <option value="01">1</option>
+                <option value="02">2</option>
+                <option value="03">3</option>
+                <option value="04">4</option>
+                <option value="05">5</option>
+                <option value="06">6</option>
+                <option value="07">7</option>
+                <option value="08">8</option>
+                <option value="09">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+            </select>
+            <label for="dd"></label>
+            <input id="dd" type="text" placeholder="일">
+        </div>
+        <label for="gender">성별</label>
+        <select name="gender" id="gender">
+            <option selected>성별</option>
+            <option value="M">남자</option>
+            <option value="G">여자</option>
+        </select>
+        <button type="button">가입하기</button>
+    </div>
+</body>
+</html>
