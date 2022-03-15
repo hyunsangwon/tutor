@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        margin: 50px auto;
+        width: 1400px;
+        height: auto;
+        background: rgba(232, 232, 232, 0.5);
+        padding: 1%;
+      }
+      .row {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 15px;
+      }
+      .item {
+        display: flex;
+        flex-direction: column;
+        flex-basis: 40%;
+        transition: 0.3s;
+      }
+      h2 {
+        text-align: center;
+      }
+      .col {
+        font-size: 24px;
+        padding: 5%;
+        border: 1px solid #36b9cc;
+        border-radius: 10px;
+        text-align: center;
+        margin-bottom: 10px;
+      }
+      .col:hover {
+        cursor: pointer;
+        background-color: #36b9cc;
+        color: #fff;
+      }
+      .order-wrapper {
+        text-align: center;
+      }
+      button {
+        width: 10%;
+        cursor: pointer;
+        background: transparent;
+        outline: none;
+        border: 1px solid #fff;
+        border-radius: 10px;
+        padding: 2%;
+        font-size: 24px;
+        color: #fff;
+      }
+      #btn-order {
+        background-color: #4e73df;
+        margin-right: 20px;
+      }
+      #btn-clear {
+        background-color: #e74a3b;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="item"><h2>Menu</h2></div>
+        <div class="item"><h2>My Menu</h2></div>
+      </div>
+      <div class="row">
+        <div class="item">
+          <div class="col" onclick="removeItem(this)">곱창 파스타</div>
+          <div class="col" onclick="removeItem(this)">육회</div>
+          <div class="col" onclick="removeItem(this)">지코바</div>
+          <div class="col" onclick="removeItem(this)">빠에야</div>
+          <div class="col" onclick="removeItem(this)">알리오 올리오</div>
+        </div>
+        <div id="myMenu" class="item"></div>
+      </div>
+      <div class="order-wrapper">
+        <button id="btn-order" type="button" onclick="doOrder()">주문</button>
+        <button id="btn-clear" type="button" onclick="doClear()">취소</button>
+      </div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      function removeItem(val) {
+        $('#myMenu').append(val);
+      }
+      function doOrder() {
+        var len = $('#myMenu').children().length;
+        if (len < 1) {
+          alert('메뉴를 선택해주세요!');
+          return false;
+        }
+        var menu = '';
+        for (var i = 0; i < len; i++) {
+          if (i == len - 1) {
+            menu += $('#myMenu').children()[i].innerHTML;
+            break;
+          }
+          menu += $('#myMenu').children()[i].innerHTML + ',';
+        }
+        confirm(
+          '선택한 메뉴는 ' + menu + ' 총' + len + '개를 주문하시겠습니까?.',
+        );
+      }
+      function doClear() {
+        window.location.reload();
+      }
+    </script>
+  </body>
+</html>
