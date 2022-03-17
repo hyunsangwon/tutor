@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .item {
+        width: 1200px;
+        height: 300px;
+        margin: 30px auto;
+        border: 1px solid black;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="item">
+      <div class="row">
+        <div class="baby">Hello World</div>
+      </div>
+      <div class="row"></div>
+      <div class="row"></div>
+      <div class="row"></div>
+      <div class="row"></div>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $('.item').on('click', function () {
+        //자식 요소만 탐색할때는 children
+        console.log($('.item').children());
+        //자식 및 하위 태그 모두에서 찾을 때는 find
+        console.log($('.item').find('.baby'));
+      });
+    </script>
+  </body>
+</html>
