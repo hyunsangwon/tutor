@@ -107,6 +107,10 @@
         }
         var menu = '';
         for (var i = 0; i < len; i++) {
+          if ($('#myMenu').children()[i].innerHTML === '곱창 파스타') {
+            alert($('#myMenu').children()[i].innerHTML + '재료소진 입니다.');
+            return false;
+          }
           if (i == len - 1) {
             menu += $('#myMenu').children()[i].innerHTML;
             break;
