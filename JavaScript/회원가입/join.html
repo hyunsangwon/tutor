@@ -103,7 +103,68 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      function join() {}
+      function join() {
+        //trim 문자열 함수이고 자바스크립트에 내장함수!
+        var userId = $('#userId').val().trim(); //메소드 체이닝(리턴값이 있는 함수만 가능)
+        if (userId == '') {
+          alert('아이디를 입력해주세요!');
+          $('#userId').focus();
+          return false;
+        }
+        if (userId.length >= 20) {
+          alert('아이디는 20글자 이하로 작성해주세요.');
+          $('#userId').focus();
+          $('#userId').val('');
+          return false;
+        }
+        var password = $('#password').val().trim();
+        var rePassword = $('#rePassword').val().trim();
+        if (password == '' || rePassword == '') {
+          alert('비밀번호를 입력해주세요');
+          $('#password').focus();
+          $('#rePassword').focus();
+          return false;
+        }
+        if (password !== rePassword) {
+          alert('비밀번호가 서로 다릅니다.');
+          return false;
+        }
+        var userName = $('#userName').val().trim();
+        if (!checkName(userName)) {
+          alert('한글이름을 입력해주세요.');
+          return false;
+        }
+
+        var year = $('#yy').val().trim();
+        var day = $('#dd').val().trim();
+        if (!checkNumber(year) || !checkNumber(day)) {
+          alert('숫자만 입력해주세요.');
+          return false;
+        }
+        // 성별 체크
+        var gender = $('#gender option:selected').val();
+        console.log(gender);
+        if (gender == 'N') {
+          alert('성별을 선택해주세요.');
+          $('#gender').focus();
+          return false;
+        }
+
+        var isResult = confirm('회원가입을 하시겠습니까?');
+        if (isResult) {
+          console.log('회원가입 성공!');
+        }
+      }
+      //정규표현식 함수 (한글이름만 가능하게)
+      function checkName(name) {
+        var regex = /^[가-힣]+$/; //정규표현식 (한글이름만 찾기)
+        return regex.test(name); //정규표현식 체크, test함수는 true, false 반환
+      }
+      //정규표현식 함수 (숫자만 가능하게)
+      function checkNumber(num) {
+        var regex = /[0-9]/;
+        return regex.test(num);
+      }
     </script>
   </body>
 </html>
