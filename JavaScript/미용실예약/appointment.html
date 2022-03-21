@@ -100,19 +100,19 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      $('#btn-order').on('click', function () {
-        var option = $("input[name='info']:checked").val();
+      $('#btn-order').on('click', function () { //예약 버튼 클릭 이벤트
+        var option = $("input[name='info']:checked").val();//name이 info인 checked된 input 값 가져오기
         if (option == undefined) {
           alert('스타일을 선택하세요!');
           return false;
         }
-        var selectedTime = $('#appointment option:selected').val();
+        var selectedTime = $('#appointment option:selected').val();//select tag 값 가져오기
         console.log(selectedTime);
         if (selectedTime == '') {
           alert('시간을 선택하세요!');
           return false;
         }
-        var isResult = confirm('예약을 정말 하시겠습니까?');
+        var isResult = confirm('예약을 정말 하시겠습니까?');//confirm에 return값은 boolean이다.
         if (isResult) {
           $('#appointment option:selected').remove();
         }
