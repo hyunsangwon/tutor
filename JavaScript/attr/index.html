@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=
+    , initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        .red{
+            margin: auto;
+            width: 500px;
+            height: 200px;
+            background-color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="red">
+        <input id="userId" type="text" placeholder="아이디를 입력하세요">
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+        $(function() { //첫 로딩시 바로 실행 해주는 함수
+            //attr(속성 이름, 값)
+            //attr은 요소(element === tag)의 속성을 제어할 때 사용함.
+            $('.red').attr('id');//element id 이름을 return함.
+            $('.red').attr('id','red');//id 이름을 red로 생성.
+            $('.red').attr('style','background-color: red'); //css의 background-color도 바꿀 수 있다.
+            $('#userId').attr('placeholder','hello world...');//input의 placeholder값 수정.
+        });
+    </script>
+</body>
+</html>
