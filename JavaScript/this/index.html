@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- this! -->
+    <div class="member">
+      <!-- this는 데이터 값이다. 
+        this는 나 자신을 의미한다.
+    -->
+      <p onclick="doClick(this)">강인석</p>
+      <p onclick="doClick(this)">류근환</p>
+      <p onclick="doClick(this)">김준수</p>
+      <p onclick="doClick(this)"><a href="">오승택</a></p>
+    </div>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    //doClick은 this를 파라미터로 받을 예정이다.
+    function doClick(thisValue) {
+      //this는 나자신을 의미하기 때문에
+      //$(this)가 가능하다.
+      var htmlText = $(thisValue).css('color', '#777');
+      console.log(htmlText);
+    }
+  </script>
+</html>
