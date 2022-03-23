@@ -104,7 +104,8 @@
     ></script>
     <script>
       function join() {
-        //trim 문자열 함수이고 자바스크립트에 내장함수!
+        //trim() 문자열 함수이고 자바스크립트에 내장함수!
+        //input에 value를 불러올 때는 trim을 이용해서 공백제거 하자
         var userId = $('#userId').val().trim(); //메소드 체이닝(리턴값이 있는 함수만 가능)
         if (userId == '') {
           alert('아이디를 입력해주세요!');

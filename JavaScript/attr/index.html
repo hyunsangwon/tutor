@@ -1,86 +1,89 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
     <style>
-        *{
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        .red{
-            width: 500px;
-            height: 200px;
-        }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .red {
+        width: 500px;
+        height: 200px;
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- id는 중복 불가능 -->
     <div id="red" class="red">
-        <input id="order" type="text" value="아메리카노">
-        <select id="menu">
-            <option value="none" selected>---커피를 선택하시오---</option>
-            <option value="americano">아메리카노</option>
-            <option value="icetea">아이스티</option>
-            <option value="latte">카페라떼</option>
-        </select>
+      <input id="order" type="text" value="아메리카노" />
+      <select id="menu">
+        <option value="none" selected>---커피를 선택하시오---</option>
+        <option value="americano">아메리카노</option>
+        <option value="icetea">아이스티</option>
+        <option value="latte">카페라떼</option>
+      </select>
     </div>
     <script
-    src="https://code.jquery.com/jquery-3.6.0.min.js"
-    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
-    crossorigin="anonymous"></script>
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
     <script>
-        $(function(){ //페이지 로딩시 처음 실행 해주는 함수
-            var id = $('.red').attr('id'); //attribute : 속성
-            //태그(요소) 아이디 이름 가져오기 
-            console.log(id);
-            $('.red').attr('id','black'); //id를 red에서 black으로 수정
-            // attr은 속성이름을 호출할 수도있고, 속성값을 수정할 수도 있다.
-            // attr(속성이름, 값) 
-            $('.red').attr('style','background-color: red'); //스타일 변경
+      $(function () {
+        //페이지 로딩시 처음 실행 해주는 함수
+        var id = $('.red').attr('id'); //attribute : 속성
+        //태그(요소) 아이디 이름 가져오기
+        console.log(id);
+        $('.red').attr('id', 'black'); //id를 red에서 black으로 수정
+        // attr은 속성이름을 호출할 수도있고, 속성값을 수정할 수도 있다.
+        // attr(속성이름, 값)
+        $('.red').attr('style', 'background-color: red'); //스타일 변경
 
-            //문제1. input value를 가져와서, 해당 option에 selected
-            var orderMenu = $('#order').val();
-            if(orderMenu === '아메리카노'){
-                //option:eq(1): option 1번째 (option은 0부터 시작)
-                //attr('selected','selected') selected 속성에 selected값 넣기
-                $('#menu option:eq(1)').attr('selected','selected');
-            }
-            if(orderMenu === '아이스티'){
-                $('#menu option:eq(2)').attr('selected','selected');
-            }
-            if(orderMenu === '카페라떼'){
-                $('#menu option:eq(3)').attr('selected','selected');
-            }
-        });
-        //keyup : 키보드에서 손을 땠을 때 실행
-        //keydown : 키보드를 눌렀을 때 실행
-        $('#order').on('keyup',function(e){//keyup 이벤트발생 -> 익명함수 파라미터에 이벤트 json 넘겨준다.
-            console.log(e); 
-            if(e.keyCode == 13){ //엔터는 13
-                //엔터눌렀을 때 실행 코드
-                var orderMenu = $('#order').val();
-                if(orderMenu === '아메리카노'){
-                    $('#menu option:eq(1)').attr('selected','selected'); 
-                    $('#menu option:eq(2)').removeAttr('selected');//속성 지우기
-                    $('#menu option:eq(3)').removeAttr('selected');
-                }
-                if(orderMenu === '아이스티'){
-                    $('#menu option:eq(2)').attr('selected','selected');
-                    $('#menu option:eq(1)').removeAttr('selected');
-                    $('#menu option:eq(3)').removeAttr('selected');
-                }
-                if(orderMenu === '카페라떼'){
-                    $('#menu option:eq(3)').attr('selected','selected');
-                    $('#menu option:eq(1)').removeAttr('selected');
-                    $('#menu option:eq(2)').removeAttr('selected');
-                }
-            }
-        });
-
+        //문제1. input value를 가져와서, 해당 option에 selected
+        var orderMenu = $('#order').val();
+        if (orderMenu === '아메리카노') {
+          //option:eq(1): option 1번째 (option은 0부터 시작)
+          //attr('selected','selected') selected 속성에 selected값 넣기
+          $('#menu option:eq(1)').attr('selected', 'selected');
+        }
+        if (orderMenu === '아이스티') {
+          $('#menu option:eq(2)').attr('selected', 'selected');
+        }
+        if (orderMenu === '카페라떼') {
+          $('#menu option:eq(3)').attr('selected', 'selected');
+        }
+      });
+      //keyup : 키보드에서 손을 땠을 때 실행
+      //keydown : 키보드를 눌렀을 때 실행
+      $('#order').on('keyup', function (e) {
+        //keyup 이벤트발생 -> 익명함수 파라미터에 이벤트 json 넘겨준다.
+        console.log(e);
+        if (e.keyCode == 13) {
+          //엔터는 13
+          //엔터눌렀을 때 실행 코드
+          var orderMenu = $('#order').val();
+          if (orderMenu === '아메리카노') {
+            $('#menu option:eq(1)').attr('selected', 'selected');
+            $('#menu option:eq(2)').removeAttr('selected'); //속성 지우기
+            $('#menu option:eq(3)').removeAttr('selected');
+          }
+          if (orderMenu === '아이스티') {
+            $('#menu option:eq(2)').attr('selected', 'selected');
+            $('#menu option:eq(1)').removeAttr('selected');
+            $('#menu option:eq(3)').removeAttr('selected');
+          }
+          if (orderMenu === '카페라떼') {
+            $('#menu option:eq(3)').attr('selected', 'selected');
+            $('#menu option:eq(1)').removeAttr('selected');
+            $('#menu option:eq(2)').removeAttr('selected');
+          }
+        }
+      });
     </script>
-</body>
+  </body>
 </html>
