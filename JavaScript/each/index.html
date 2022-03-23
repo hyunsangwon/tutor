@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="container">
+      <ul>
+        <li>멤버소개</li>
+        <li>오시는길</li>
+        <li>회사소개</li>
+        <li>서비스</li>
+      </ul>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function () {
+        //$('.container ul li') container 안에 있는 li
+        //$('li') html 안에 있는 li
+        $('.container ul li').each(function (index, item) {
+          //each 제이쿼리 반복문
+          if (index == 1) {
+            //index는 0부터 시작
+            console.log('hello world');
+          }
+          console.log(index);
+          console.log($(item).text()); //item은 this를 의미함.
+          // this : 나 자신(해당 요소)
+          //*this *super 시간날 때 검색 必
+        });
+      });
+    </script>
+  </body>
+</html>
