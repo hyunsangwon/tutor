@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta
+      name="viewport"
+      content="width=
+    , initial-scale=1.0"
+    />
+    <title>Document</title>
+  </head>
+  <body>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function () {
+        //json
+        var jsonData = {
+          name: '포항폭탄주이모',
+          age: 40,
+          addr: '포항',
+          family: {
+            dad: '신형만',
+            mom: '봉미선',
+          },
+        };
+        console.log(jsonData); //json 출력해보기!
+        console.log(jsonData.family.dad); //json안에 json 데이터 접근!
+        //배열안에 있는 json
+        var jsonData2 = [
+          { name: '짱구', family: { dad: '신형만', mom: '봉미선' } },
+          { name: '유리' },
+          { name: '맹구' },
+        ];
+        //0번째 원소에 있는 가족 아빠 출력
+        console.log(jsonData2[0].family.dad);
+        //총합 더하기
+        var jsonData3 = [
+          { sal: 3000 },
+          { sal: 5000 },
+          { sal: 4400 },
+          { sal: 2300 },
+        ];
+        var sum = 0;
+        //버전 5
+        jsonData3.forEach(function (element) {
+          sum += element.sal;
+        });
+        console.log('총합은 : ' + sum);
+        //버전 6 (arrow function )
+        let total = 0;
+        jsonData3.forEach((element) => {
+          total += element.sal;
+        });
+        console.log('총합은 : ' + total);
+
+        var jsonData4 = {
+          name: '보노보노',
+          addr: '보노보노숲',
+          friend: ['너부리', '포로리', '야옹이형'],
+          family: [
+            { name: '보노보노아빠', age: 34 },
+            { name: '보노보노엄마', age: 30 },
+          ],
+          hobby: '낮잠',
+        };
+        //문제 1. friend 길이를 구하시오.
+        //문제 2. family 나이를 합산하시오.
+        //문제 3. 보노보노의 취미를 낮잠에서 수영으로 변경하시오.
+        jsonData4.hobby = '수영';
+        //문제 4. saying이라는 key를 추가하고 value에 '포로리야 놀자'를 추가하시오.(검색 必)
+        jsonData4.saying = '포로리야 놀자';
+        console.log(jsonData4);
+      });
+    </script>
+  </body>
+</html>
