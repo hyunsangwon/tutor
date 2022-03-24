@@ -47,10 +47,17 @@
         ];
         var sum = 0;
         //버전 5
+        //for문으로 풀어보기
+        for(var i=0; i<jsonData3.length; i++){
+          sum+=jsonData3[i].sal;
+        }
+        sum = 0;
+        //forEach로 풀어보기
         jsonData3.forEach(function (element) {
           sum += element.sal;
         });
         console.log('총합은 : ' + sum);
+
         //버전 6 (arrow function )
         let total = 0;
         jsonData3.forEach((element) => {
@@ -58,6 +65,7 @@
         });
         console.log('총합은 : ' + total);
 
+        // json 문제 풀어보기 (응용)
         var jsonData4 = {
           name: '보노보노',
           addr: '보노보노숲',

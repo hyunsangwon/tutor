@@ -1,6 +1,6 @@
 ### JSON(JavaScript Object Notation)
 
-    데이터를 저장하거나 전송할 때 많이 사용되는 경량의 DATA 교환 형식
+    데이터를 저장하거나 전송할 때 많이 사용되는 경량의 DATA 형식
 
 ### 사용하는 이유
 
