@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="forms">
+      <input id="email" type="text" placeholder="이메일을 입력하세요..." />
+      <input
+        id="companyNumber"
+        type="text"
+        placeholder="사업자등록번호를 입력하세요..."
+      />
+      <input id="userName" type="text" placeholder="이름을 입력하세요..." />
+      <!-- input 20개있다고 가정 -->
+    </div>
+    <button id="btn" type="button">사업 제출</button>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      //$('#btn').on('click', function () {}); //ver 5
+      $('#btn').click(function () {
+        console.log('hello world');
+        //문제1. for문을 완성 -> console.log로 id를 출력할 것
+        var formsChildren = $('.forms').children();
+        for (var i = 0; i < formsChildren.length; i++) {
+          var value = $('#' + formsChildren[i].id).val();
+          if (value === '') {
+            console.log('input값을 입력해주세요~~~!');
+            return false;
+          }
+          if (formsChildren[i].id === 'email' && !doCheckEmail(value)) {
+            console.log('이메일 형식이 올바르지 않습니다.');
+            return false;
+          }
+          if (
+            formsChildren[i].id === 'companyNumber' &&
+            !doCheckCompanyNumber(value)
+          ) {
+            console.log('사업자번호가 올바르지 않습니다.');
+            return false;
+          }
+        }
+        submitData();
+      });
+      //ver 5
+      //$('#btn').click(() => {}); //ver 6 (arrow function)
+
+      //이메일을 확인하다.
+      //자바크립트 함수 특징 : 리턴값 정의 X,
+      function doCheckEmail(email) {
+        //이메일 체크하는 정규표현식
+        var regEmail =
+          /^[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_\.]?[0-9a-zA-Z])*\.[a-zA-Z]{2,3}$/i;
+        var isEmail = regEmail.test(email); //test 라는 내장함수가 자바스크립트에 존재
+        return isEmail;
+      }
+      //사업자등록번를 확인하다.
+      function doCheckCompanyNumber(companyNumber) {
+        /* 사업자등록번호 */
+        //314 86 37230
+        var regCompanyNumber = /([0-9]{3})-?([0-9]{2})-?([0-9]{5})/;
+        var isCompanyNumber = regCompanyNumber.test(companyNumber);
+        return isCompanyNumber;
+      }
+
+      function submitData() {
+        //data -> json
+        //jquery ajax을 이용해서 json -> server(백엔드에 전송)
+        var jsonData = {};
+        jsonData.email = $('#email').val();
+        jsonData.companyNumber = $('#companyNumber').val();
+        jsonData.userName = $('#userName').val();
+        console.log(jsonData);
+      }
+    </script>
+  </body>
+</html>
