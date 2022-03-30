@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      table,
+      th,
+      td {
+        border: 1px solid;
+      }
+    </style>
+  </head>
+  <body>
+    <table>
+      <thead>
+        <tr>
+          <th>영수증 번호</th>
+          <th>구매 물품</th>
+          <th>수량</th>
+          <th>구매 날짜</th>
+          <th>구매자</th>
+        </tr>
+      </thead>
+      <tbody id="list">
+        <!-- <tr>
+          <td>123</td>
+          <td>아이폰13</td>
+          <td>10</td>
+          <td>2022-03-30</td>
+          <td>홍길동</td>
+        </tr> -->
+      </tbody>
+    </table>
+
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $(function () {
+        doResponseData(); //페이지 첫 로딩시 해당함수 강제 호출!
+      });
+      //그려주다 -> rendering
+      // rendering하는 방법이 크게 2가지가 있음.
+      // 1번째 방법 append(), html(), text()함수를 이용해서 rendering
+      // 장점 : 진입장벽 낮아
+      // 단점 : 유지보수 힘듦
+      // 2번째 방법은 Spring시간에!
+      function doResponseData() {
+        var json = {
+          //서버에서 응답온 데이터라고 가정!
+          no: 500,
+          goods: '아이폰13',
+          cnt: 10,
+          createAt: '2022-03-30',
+          name: '홍길동',
+        };
+
+        for (var i = 0; i < 5; i++) {
+          var html =
+            '<tr><td>' +
+            i +
+            '</td><td>' +
+            json.goods +
+            '</td><td>' +
+            json.cnt +
+            '</td><td>' +
+            json.createAt +
+            '</td><td>' +
+            json.name +
+            '</td></tr>';
+          $('#list').append(html);
+        }
+      }
+    </script>
+  </body>
+</html>

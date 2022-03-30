@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="forms">
+      <input id="reservationDate" type="date" />
+      <select id="menu">
+        <option value="null">메뉴선택</option>
+        <option value="don">돈까스</option>
+        <option value="kal">칼국수</option>
+        <option value="gno">뇨끼</option>
+        <option value="kim">김치볶음밥</option>
+      </select>
+      <button id="btn" type="button">음식 주문</button>
+    </div>
+    <script
+      src="https://code.jquery.com/jquery-3.6.0.min.js"
+      integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+      crossorigin="anonymous"
+    ></script>
+    <script>
+      $('#btn').click(function () {
+        var selectedMenu = $('#menu option:selected').val();
+        if (selectedMenu === 'null') {
+          alert('메뉴를 선택하시오!');
+          return false;
+        }
+        var selectedDate = $('#reservationDate').val(); //선택한 날짜
+
+        var now = new Date();
+        console.log(now); //현재 날짜 (데이터타입 : date)
+        console.log(now.getTime());
+        var reservationDate = new Date(selectedDate); //문자타입에서 Date타입으로 변경
+        console.log(reservationDate); //선택한 날짜 (데이터타입 : date)
+        console.log(reservationDate.getTime());
+
+        var diffDay =
+          (now.getTime() - reservationDate.getTime()) / (1000 * 60 * 60 * 24);
+        console.log(diffDay);
+        if (diffDay >= 1) {
+          alert('오늘날짜 이후로 예약이 가능합니다. ');
+          return false;
+        }
+      });
+    </script>
+  </body>
+</html>
