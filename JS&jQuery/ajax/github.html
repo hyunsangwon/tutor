@@ -13,15 +13,21 @@
       crossorigin="anonymous"
     ></script>
     <script>
-      // type(http method) : GET(조회), POST(추가), PATCH(일부분 수정), DELETE(데이터 삭제)
+      //개인 정보 : 'https://api.github.com/users/hyunsangwon',
+      //저장소 리스트 : https://api.github.com/users/hyunsangwon/repos
+      //저장소 상세 정보 : https://api.github.com/repos/hyunsangwon/Oss
       $.ajax({
+        //url : API(Application Programming Interface) 주소
+        //Application: 하나의 소프트웨어(프로그램)!
+        //type(http method) : GET(조회), POST(추가), PATCH(일부분 수정), DELETE(데이터 삭제)
+        //dataType : 응답(return)온 데이터
         url: 'https://api.github.com/users/hyunsangwon',
         type: 'GET', //서버로 부터 데이터를 조회
-        dataType: 'json', //서베에서 오는 데이터
+        dataType: 'json', //서베에서 오는 데이터 (*json, text)
         success: function (response) {
           console.log(response);
         },
-        error: function (xhr, status, error) {
+        error: function (request, status, error) {
           console.log('server error:' + error);
         },
       });
