@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+          name : 영화제목
+          rank : 관객 수 순위
+          createdAt : 개봉 날짜
+          salesRevenue : 판매액
+          attendance : 관객수 */
+      const movies = [
+        {
+          name: '명량',
+          rank: 1,
+          createdAt: '2014-07-30',
+          salesRevenue: 135748398910,
+          attendance: 17613682,
+        },
+        {
+          name: '극한직업',
+          rank: 2,
+          createdAt: '2019-01-23',
+          salesRevenue: 139647979516,
+          attendance: 16264944,
+        },
+        {
+          name: '신과함께-죄와 벌',
+          rank: 3,
+          createdAt: '2014-07-30',
+          salesRevenue: 135748398910,
+          attendance: 17613682,
+        },
+        {
+          name: '국제시장',
+          rank: 4,
+          createdAt: '2014-07-30',
+          salesRevenue: 110913469630,
+          attendance: 14257115,
+        },
+        {
+          name: '어벤져스: 엔드게임',
+          rank: 5,
+          createdAt: '2019-04-24',
+          salesRevenue: 122182694160,
+          attendance: 13934592,
+        },
+      ];
+      /*
+      우리나라에서 개봉한 역대 관객수 TOP5영화 데이터를 조회했다고 가정.
+      문제 1번.
+          영화 이름, 개봉날짜, 순위만 출력하시오.
+      문제 2번.
+          영화 명량과 어벤져스의 판매액 합산을 구하시오.
+      문제 3번.
+          관객수가 15000000넘은 영화의 이름과 개봉날짜 판매액을 출력하시오.
+      문제 4번.
+          1위 영화부터 5위 영화 판매액 평균을 구하시오.
+      문제 5번.
+          개봉날짜가 가장 최근인 영화의 이름과 개봉일 순위를 구하시오.
+        */
+      //1번.
+      for (var i = 0; i < movies.length; i++) {
+        console.log('영화 이름 : ' + movies[i].name);
+        console.log('개봉 날짜 : ' + movies[i].createdAt);
+        console.log('누적 관객 순위 : ' + movies[i].rank);
+      }
+      //2번.
+      var sum = 0;
+      for (var i = 0; i < movies.length; i++) {
+        if (
+          movies[i].name === '명량' ||
+          movies[i].name === '어벤져스: 엔드게임'
+        ) {
+          sum += movies[i].salesRevenue;
+        }
+      }
+      console.log('명량과 어벤져스: 엔드게임 판매 총액은 : ' + sum);
+      //3번.
+      for (var i = 0; i < movies.length; i++) {
+        if (movies[i].attendance >= 15000000) {
+          console.log('영화 이름 : ' + movies[i].name);
+          console.log('개봉 날짜 : ' + movies[i].createdAt);
+          console.log('판매액 : ' + movies[i].salesRevenue);
+        }
+      }
+      //4번.
+      var total = 0;
+      for (var i = 0; i < movies.length; i++) {
+        total += movies[i].salesRevenue;
+      }
+      console.log('판매액 평균은 : ' + total / movies.length);
+      //5번.
+      var max = 0;
+      var temp = 0;
+      for (var i = 0; i < movies.length; i++) {
+        var time = new Date(movies[i].createdAt).getTime();
+        if (max < time) {
+          max = time;
+          temp = i;
+        }
+      }
+      console.log('영화 이름 : ' + movies[temp].name);
+      console.log('개봉 날짜 : ' + movies[temp].createdAt);
+      console.log('누적 관객 순위 : ' + movies[temp].rank);
+    </script>
+  </body>
+</html>
