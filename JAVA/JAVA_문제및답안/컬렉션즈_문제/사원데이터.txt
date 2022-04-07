@@ -1,0 +1,15 @@
+ArrayList<EmpVO> list = new ArrayList<EmpVO>();
+list.add(new EmpVO(7369,"SMITH","CLERK","1980-12-17",800,20,0));
+list.add(new EmpVO(7499,"ALLEN","SALESMAN","1981-02-20",1600,30,300));
+list.add(new EmpVO(7521,"WARD","SALESMAN","1981-02-22",1250,30,500));
+list.add(new EmpVO(7566,"JONES","MANAGER","1981-04-02",2975,20,0));
+list.add(new EmpVO(7654,"MARTIN","SALESMAN","1981-09-28",1250,30,1400));
+list.add(new EmpVO(7698,"BLAKE","MANAGER","1981-05-01",2850,30,0));
+list.add(new EmpVO(7782,"CLARK","MANAGER","1981-06-09",2450,10,0));
+list.add(new EmpVO(7788,"SCOTT","ANALYST","1987-06-28",3000,20,0));
+list.add(new EmpVO(7839,"KING","PRESIDENT","1981-11-17",5000,10,0));
+list.add(new EmpVO(7844,"TURNER","SALESMAN","1981-09-08",1500,30,0));
+list.add(new EmpVO(7876,"ADAMS","CLERK","1987-07-13",1100,20,0));
+list.add(new EmpVO(7900,"JAMES","CLERK","1981-12-03",950,30,0));
+list.add(new EmpVO(7902,"FORD","ANALYST","1981-12-03",3000,20,0));
+list.add(new EmpVO(7934,null,"CLERK","1982-01-23",1300,10,0));
