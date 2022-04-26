@@ -14,9 +14,11 @@
         public void 요리를하다(){//일반 메소드
 
         }
-        abstract public void 비법을전수하다(){ //추상 메소드는 무조건 public 이어야 한다.
+        abstract public void 비법을전수하다();
+        //추상 메소드는 무조건 public 이어야 한다.
+        //추상메소드는 구현이 목적이 아님!
 
-        }
+
     }
 ```
 
@@ -40,7 +42,7 @@
     }
 ```
 
-4. 추상클래스를 상속받고 오버라이딩을 하면 클래스를 생성할 수 있다.
+4. 추상클래스를 상속받고 오버라이딩(무조건 해야함)을 하면 클래스를 생성할 수 있다.
 
 ```java
     abstract class Chef{
@@ -58,19 +60,19 @@
 
 ### 인터페이스
 
-    데이터를 제공하는 규격
+    추상클래스도 클래스 종류이기 때문에 다중상속 불가능.
+    인터페이스로 다중상속 구현가능.
+    인터페이스는 데이터를 제공하는 규격(공통기능을 제공하는 것)!
 
 1. 선언 방법
 
 ```java
     //인터페이스에 있는 모든 변수와 메소드는 모두 public abstract 이다.
     interface Food{ //class를 사용하지 않고 interface라는 키워드를 작성한다.
-        public abstract void 라면끓이는방법(){
 
-        }
-        void 찌개끓으는방법(){ //public abstract 생략 가능
+        public abstract void 라면끓이는방법();
+        void 찌개끓으는방법(); //public abstract 생략 가능
 
-        }
     }
 ```
 
