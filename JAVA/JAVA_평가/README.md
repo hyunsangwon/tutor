@@ -45,20 +45,26 @@
 
 ```java
     class A{
+
         public static int count;
         public int temp;
+
     }
     class B{
+
         main(){
+
             A a1 = new A();
             a1.count = 10;
             a1.temp = 20;
+
             A a2 = new A();
             a2.count = 20;
             a2.temp = 20;
 
             System.out.println(a1.count); // 답 :
             System.out.println(a1.temp); // 답 :
+
             System.out.println(a2.count); // 답 :
             System.out.println(a2.temp); // 답 :
         }
