@@ -33,7 +33,7 @@
     데이터베이스도 필요하고, 고객한테 보여 줄 화면도 필요하다.
     Spring과 같이 사용하는 소프트웨어를 하나 씩 알아보자.
 
-1. 데이터베이스의 연결과 데이터 생성,호출,저장,삭제를 담당하는 ORM!
+1. 데이터베이스 연결과 데이터 생성,호출,저장,삭제를 담당하는 ORM!
    - MyBatis, JPA
 2. 필요한 기능을 쉽게 다운로드받을 수 있게 도와주고 배포를 담당하는 빌드관리도구(Build Tool)!
    - Gradle, Maven
@@ -41,7 +41,8 @@
    - JSP, Thymeleaf
 4. 속성 정의를 담당하는 속성 파일!
    - yaml, properties
-5. 그 외 Docker, Graphql 등
+5. 서버를 담당하는 Tomcat!
+6. 그 외 Docker, Graphql 등
 
 ### Spring boot 참고사이트
 
