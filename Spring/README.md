@@ -22,6 +22,15 @@
 - Egov (전자정부 프레임워크)
 - Spring Boot(경량 프레임워크)
 
+### Spring 특징
+
+- DI (Dependency Injection)
+  - 의존적인 객체를 직접 생성 또는 제어하는 것이 아니라, 특정 객체가 필요하다면 객체를 Spring이 외부에서 가져다가 주입하는 방식이다. 이렇게 객체를 외부에서 가져다가 쓰기 때문에 new 연산자가 사라짐.
+- IoC (Inversion of Control)
+  - 객체의 생성부터 소멸까지 모든 생명주기를 Spring 컨테이너가 관리함.
+- AOP (Aspect Oriented Programming)
+  - 여러 메서드에서 공통적으로 해야하는 일의 코드가 중복된다면, 따로 모아서 재활용하는 것을 말함.
+
 ### Spring Boot 특징
 
 - 복잡했던 설정을 단순화.
@@ -42,6 +51,7 @@
 4. 속성 정의를 담당하는 속성 파일!
    - yaml, properties
 5. 서버를 담당하는 Tomcat!
+   - Spring boot를 한다면 설치할 필요없다.
 6. 그 외 Docker, Graphql 등
 
 ### Spring boot 참고사이트
