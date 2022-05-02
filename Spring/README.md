@@ -54,7 +54,7 @@
    - Spring boot를 한다면 설치할 필요없다.
 6. 그 외 Docker, Graphql 등
 
-### Spring boot 참고사이트
+### Spring boot 참고사이트q
 
     https://start.spring.io
     https://spring.io/projects/spring-boot
