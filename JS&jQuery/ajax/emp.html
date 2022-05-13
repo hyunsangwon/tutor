@@ -42,6 +42,17 @@
         padding: 1rem 2rem;
         text-align: center;
       }
+      a {
+        cursor: pointer;
+      }
+      .emp-enroll{
+        margin: 20px auto;
+        text-align: center;
+      }
+      .emp-enroll button{
+        padding: 2%;
+        cursor: pointer;
+      }
     </style>
   </head>
   <body>
@@ -61,6 +72,12 @@
         </thead>
         <tbody id="data"></tbody>
       </table>
+
+      <div class="emp-enroll">
+        <button id="btn" type="button">사원 추가</button>
+        <button id="btn-update" type="button">사원 수정</button>
+      </div>
+
     </div>
   </body>
   <script
@@ -69,6 +86,7 @@
     crossorigin="anonymous"
   ></script>
   <script>
+    //사원 조회
     $.ajax({
       url: 'http://localhost:8080/emp',
       type: 'GET',
@@ -77,9 +95,11 @@
         let html = '';
         for (var i = 0; i < response.length; i++) {
           html +=
-            '<tr><td>' +
+            '<tr><td><a onclick=removeEmp(' +
             response[i].empno +
-            '</td><td>' +
+            ')>' +
+            response[i].empno +
+            '</a></td><td>' +
             response[i].ename +
             '</td><td>' +
             response[i].job +
@@ -99,5 +119,65 @@
         console.log('에러 내용은 ===> ' + error);
       },
     });
+
+    //사원 삭제
+    function removeEmp(empNo) {
+      if (confirm('정말로 사원을 삭제하겠습니까?')) {
+        $.ajax({
+          url: 'http://localhost:8080/emp/empno/' + empNo,
+          type: 'DELETE',
+          dataType: 'json',
+          success: function (response) {
+            if (response > 0) {
+              location.reload(); //새로고침 
+            } else {
+              alert('삭제가 X');
+            }
+          }
+        });
+      }
+    }
+
+    //사원 추가
+    $('#btn').click(function(){
+      let jsonData = {
+        "empno": 160,
+        "ename": "김상원",
+        "job": "MANAGER",
+        "deptno": 20
+      };
+      $.ajax({
+        url: 'http://localhost:8080/emp',
+        type: 'POST',
+        contentType: "application/json", //contentType : 보낼 때 json으로 
+        dataType: 'json', //dataType : return을 json으로
+        data : JSON.stringify(jsonData),//data : 실제 json 데이터
+        success: function (response) {
+          console.log(response);
+          location.reload();
+        },
+      });
+    });
+
+    //사원 수정
+    $('#btn-update').click(function(){
+        let jsonData = {
+          "job" : "MANAGER",
+          "sal" : 8000
+        };
+        let empno = 9000;
+        $.ajax({
+        url: 'http://localhost:8080/api/v1/emp/'+ empno, //url : controller 주소
+        type: 'PATCH', //type : HTTP 메소드 (GET,DELETE,POST,PATCH)
+        contentType: "application/json", //contentType : 서버에게 json으로 요청한다.
+        dataType: 'json', //dataType : 서버의 결과를 json으로 응답받는다.
+        data: JSON.stringify(jsonData),//data : 실제 json 데이터
+        success: function (response) {
+          console.log(response);
+          location.reload();
+        },
+      });
+    });
+
   </script>
 </html>
