@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        width: 1200px;
+        margin: 50px auto;
+      }
+      .emp-table {
+        width: 100%;
+        height: 400px;
+        box-shadow: 0 3px 7px grey;
+        background-color: #ffffff;
+      }
+      tr {
+        border: 1px solid #444444;
+      }
+      tr:nth-child(even) {
+        background-color: #eaeaeb;
+      }
+      thead {
+        box-shadow: 0 1px 5px grey;
+      }
+      th {
+        padding: 1rem 2rem;
+        letter-spacing: 0.4rem;
+        font-size: 16px;
+        font-weight: 800;
+        text-align: center;
+      }
+      td {
+        font-size: 14px;
+        padding: 1rem 2rem;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>EMP 사원리스트</h1>
+      <table class="emp-table">
+        <thead>
+          <tr>
+            <th>사원 번호</th>
+            <th>사원 이름</th>
+            <th>직업</th>
+            <th>급여</th>
+            <th>입사 날짜</th>
+            <th>부서 이름</th>
+            <th>근무 지역</th>
+          </tr>
+        </thead>
+        <tbody id="data"></tbody>
+      </table>
+    </div>
+  </body>
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    $.ajax({
+      url: 'http://localhost:8080/emp',
+      type: 'GET',
+      dataType: 'json',
+      success: function (response) {
+        let html = '';
+        for (var i = 0; i < response.length; i++) {
+          html +=
+            '<tr><td>' +
+            response[i].empno +
+            '</td><td>' +
+            response[i].ename +
+            '</td><td>' +
+            response[i].job +
+            '</td><td>' +
+            response[i].sal +
+            '</td><td>' +
+            response[i].hiredate +
+            '</td><td>' +
+            response[i].dname +
+            '</td><td>' +
+            response[i].loc +
+            '</td></tr>';
+        }
+        $('#data').append(html);
+      },
+      error: function (request, status, error) {
+        console.log('에러 내용은 ===> ' + error);
+      },
+    });
+  </script>
+</html>

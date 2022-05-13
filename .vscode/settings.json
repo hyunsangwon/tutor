@@ -1,9 +1,10 @@
 {
-    "powermode.enabled": false,
-    "editor.formatOnSave": true,
-    "editor.formatOnPaste": true,
-    "editor.formatOnType": true,
-    "[html]": {
-      "editor.defaultFormatter": "esbenp.prettier-vscode"
-    }
+  "powermode.enabled": false,
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "editor.formatOnType": true,
+  "[html]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  },
+  "liveServer.settings.port": 5502
 }
