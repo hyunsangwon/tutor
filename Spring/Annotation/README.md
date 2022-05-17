@@ -34,14 +34,60 @@
     스프링 컨테이너는 @Configuration이 붙어있는 클래스를 자동으로 빈으로 등록해두고,
     @Bean이 있는 메소드를 찾아서 빈 생성.
 
-### @PathVariable
+## 고급 Spring @어노테이션 모음 :star:
 
-    URL에 들어온 값을 파라미터에 대입하려고 할 때
-    {}안에 들어온 값이 파라미터에 대입 됨.
-    @GetMapping("/emp/no/{empNo}")
-    @PathVariable("empNo") int empNo
+### @EnableWebSecurity
 
-### @Param
+    Spring Security 프레임워크를 사용을 위한 어노테이션.
 
-    Mybatis에 2개 이상 파라미터를 넘길 때는 @Param이용해서 이름 지정!
-    @Param("job") String job
+### @EnableCaching
+
+    Spring Cache를 사용하겠다.
+
+### @Cacheable
+
+    해당 메소드를 캐시하겠다.
+
+```java
+	//ehcache.xml에 있는 cache name="ListCacheData"과 매핑
+	@Cacheable(cacheNames="ListCacheData")
+	public List<Object> getList(){
+		List<Object> list = mapper();
+		return list;
+	}
+```
+
+### @Transactional
+
+    해당 메소드에 비즈니스로직 에러가 발생한다면 트랜잭션을 롤백하겠다.
+
+```java
+	@Transactional(propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
+	public int setUser(VO){
+		//로직 구현...
+	}
+```
+
+### @ConfigurationProperties
+
+    자바 클래스 필드변수에 property 값을 바인딩.
+
+```gradle
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
+```
+
+```yaml
+url:
+	naver: www.naver.com
+	google: google.com
+```
+
+```java
+	@Data
+	@Component //ConfigurationProperties를 사용하려면 bean 등록.
+	@ConfigurationProperties(prefix = "url")
+	public class VO{
+		private String naver;
+		private String google
+	}
+```
