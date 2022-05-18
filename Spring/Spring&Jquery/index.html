@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .container {
+        width: 1200px;
+        margin: 50px auto;
+      }
+      .emp-table {
+        width: 100%;
+        height: 400px;
+        box-shadow: 0 3px 7px grey;
+        background-color: #ffffff;
+      }
+      tr {
+        border: 1px solid #444444;
+      }
+      tr:nth-child(even) {
+        background-color: #eaeaeb;
+      }
+      thead {
+        box-shadow: 0 1px 5px grey;
+      }
+      th {
+        padding: 1rem 2rem;
+        letter-spacing: 0.4rem;
+        font-size: 16px;
+        font-weight: 800;
+        text-align: center;
+      }
+      td {
+        font-size: 14px;
+        padding: 1rem 2rem;
+        text-align: center;
+      }
+      h1 {
+        text-align: center;
+        margin-bottom: 50px;
+      }
+      a {
+        cursor: pointer;
+      }
+      button {
+        margin: 50px auto;
+        text-align: center;
+        padding: 20px 20px;
+      }
+      .emp-enroll {
+        margin: 20px auto;
+        text-align: center;
+      }
+      .emp-enroll button {
+        padding: 2%;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1 id="empList">사원리스트</h1>
+      <table class="emp-table">
+        <thead>
+          <tr>
+            <th>사원 번호</th>
+            <th>부서 번호</th>
+            <th>사원 이름</th>
+            <th>직업</th>
+            <th>급여</th>
+            <th>입사 날짜</th>
+            <th>부서 이름</th>
+            <th>근무 지역</th>
+          </tr>
+        </thead>
+        <tbody id="data"></tbody>
+      </table>
+      <div class="emp-enroll">
+        <button id="btn" type="button">사원 추가</button>
+        <button id="btn-update" type="button">사원 수정</button>
+      </div>
+    </div>
+  </body>
+  <!-- jquery download -->
+  <!-- AJAX는 jquery에 있는 기능(함수) -->
+  <script
+    src="https://code.jquery.com/jquery-3.6.0.min.js"
+    integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="
+    crossorigin="anonymous"
+  ></script>
+  <script>
+    //사원 조회
+    $.ajax({
+      url: 'http://localhost:8080/emp',
+      type: 'GET',
+      dataType: 'json',
+      success: function (response) {
+        // response : url주소에서 받아온 데이터가 json으로 들어가 있는 변수이다.
+        // 데이터 요청이 성공한다면 success함수가 실행 된다.
+        var count = 0;
+        for (var i = 0; i < response.length; i++) {
+          if (response[i].deptno == 30) {
+            count++;
+          }
+        }
+        console.log(count);
+        getDeptnoCount(response);
+      },
+      error: function (request, status, error) {
+        // 데이터 요청에 실패한다면 error함수가 실행된다.
+        // error가 변수(error)에 들어온다.
+        console.log('에러 내용 : ' + error);
+      },
+    });
+
+    // 조회한 사원을 게시판에 추가!
+    function getDeptnoCount(response) {
+      //response : 위 ajax "GET"으로 가져온 json을 넣어준 변수이다.
+      let html = '';
+      for (var i = 0; i < response.length; i++) {
+        html +=
+          // html : 게시판의 형식과 어떤데이터를 추가할지를 담는 변수이다.
+          '<tr><td><a onclick=removeEmp(' + //a태그(웹서버에서 개발자 관리도구 참고(a태그가 붙어있는지)) == empno를 클릭하게 되면 removeEmp 함수 실행!
+          //onclick=removeEmp(파라미터 값) : ''안에 있어도 html이라고 생각하면 된다.
+          response[i].empno + //removeEmp함수에서 파라미터에 어떤 empno를 삭제할 것인지 넣어주기 위한  empno
+          ')>' +
+          response[i].empno + // td에 추가를 하기 위한 empno
+          '</a></td><td>' +
+          response[i].deptno +
+          '</td><td>' +
+          response[i].ename +
+          '</td><td>' +
+          response[i].job +
+          '</td><td>' +
+          response[i].sal +
+          '</td><td>' +
+          response[i].hiredate +
+          '</td><td>' +
+          response[i].dname +
+          '</td><td>' +
+          response[i].loc +
+          '</td></tr>';
+      }
+      $('#data').append(html);
+    }
+
+    //사원 삭제
+    function removeEmp(empNo) {
+      // empNo : 삭제해야 할 empno를 받아 옴과 동시에 DELETE url주소에 입력해야할 empno이다.
+      // removeEmp() = getDeptnoCount 함수에서 a태그의 onclick
+      if (confirm('정말로 사원을 삭제하시겠습니까?')) {
+        //confirm : 확인(==true),취소(==false)를 선택할 수 있는 알림창이므로 확인을 클릭시 if()문이 실행되어서 ajax 실행!
+        $.ajax({
+          url: 'http://localhost:8080/emp/empno/' + empNo, //웹서버에서의 url주소 : http://localhost:8080/emp/empno/{empno}
+          type: 'DELETE',
+          dataType: 'json',
+          success: function (response) {
+            console.log(response);
+            alert('사원번호 : ' + empNo + '번을 삭제하였습니다.');
+            // 클릭해서 지웠으니까 새로고침을 해주어야함.
+            location.reload();
+          },
+          error: function (request, status, error) {
+            console.log(error);
+          },
+        });
+      }
+    }
+
+    //사원 추가
+    $('#btn').click(function () {
+      let jsonData = {
+        empno: 8566,
+        ename: '팔오육육',
+        deptno: 30,
+        sal: 130,
+        job: 'AJAX',
+      };
+      $.ajax({
+        url: 'http://localhost:8080/emp',
+        type: 'POST',
+        contentType: 'application/json', // contentType : 서버에게 json으로 요청한다.
+        dataType: 'json', //dataType : 서버의 결과를 json으로 응답 받는다.
+        data: JSON.stringify(jsonData), // data : JSON.stringify(json을 담은 변수명)을 안해주면 json을 문자로 인식 <-> 해주면 json으로 인식
+        success: function (response) {
+          console.log(response);
+          location.reload(); //자동으로 새로고침 함수.
+          console.log(jsonData); //location.reload 새로고침 함수가 있어서 console.log를 하여도 결과출력을 볼 수 없네...
+        },
+        error: function (request, status, error) {
+          console.log(error);
+        },
+      });
+    });
+
+    //사원 수정
+    $('#btn-update').click(function () {
+      let jsonData = {
+        job: 'OFFICIAL',
+        sal: 130,
+      };
+      let empno = 8388;
+      $.ajax({
+        url: 'http://localhost:8080/api/v1/emp/' + empno, // controller 주소, 웹 출력시 수정하고자 하는 empno 헤더에 작성
+        type: 'PATCH', //HTTP 메소드 (GET,POST,DELETE,PATCH)
+        contentType: 'application/json', //contentType : controller에 요청할 때 json 으로 보냄.
+        dataType: 'json', //dataType : controller에요청한 데이터를 json으로 응답받는다.
+        data: JSON.stringify(jsonData), //JSON.stringify을 안해주면 json을 문자로 인식
+        success: function (response) {
+          console.log(response);
+          location.reload();
+        },
+        error: function (request, status, error) {
+          console.log(error);
+        },
+      });
+    });
+  </script>
+</html>
