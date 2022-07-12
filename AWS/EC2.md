@@ -40,10 +40,11 @@
 
 3. Tomcat 설치
 
-   - wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.64/bin/apache-tomcat-9.0.64.tar.gz
-   - tar xf apache-tomcat-9.0.64.tar.gz
-   - mv apache-tomcat-9.0.64 tomcat (폴더명 수정)
-   - sh startup.sh (bin폴더에 startup.sh가 있음)
+   - wget https://downloads.apache.org/tomcat/tomcat-9/v9.0.64/bin/apache-tomcat-9.0.64.tar.gz (다운로드 명령어)
+   - tar xf apache-tomcat-9.0.64.tar.gz (압축풀기 명령어)
+   - mv apache-tomcat-9.0.64 tomcat (폴더이름을 apache-tomcat-9.0.64에서 tomcat으로 변경)
+   - cd /tomcat/bin
+   - sh startup.sh (톰캣 실행 명령어)
 
 4. 포트 확인
    - netstat -tnlp
